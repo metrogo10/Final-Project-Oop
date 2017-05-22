@@ -54,9 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Item.cs" />
+    <Compile Include="Models1\Item.cs" />
     <Compile Include="NumAttribute.cs" />
-    <Compile Include="Race.cs" />
+    <Compile Include="Models1\Race.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,9 +65,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Character.cs" />
-    <Compile Include="CharacterAttribute.cs" />
-    <Compile Include="Class.cs" />
+    <Compile Include="Models1\Character.cs" />
+    <Compile Include="Models1\CharacterAttribute.cs" />
+    <Compile Include="Models1\Archetype.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
