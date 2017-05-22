@@ -396,15 +396,15 @@ TakeTurn(C Character):void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1773</x>
+      <x>1836</x>
       <y>450</y>
-      <w>135</w>
+      <w>99</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;80.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
