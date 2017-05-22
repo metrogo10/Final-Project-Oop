@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class Class
+    public class Archetype
     {
         protected String Name;
         protected String Description;
