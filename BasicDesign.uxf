@@ -136,8 +136,8 @@ _+Run():Void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>630</y>
+      <x>420</x>
+      <y>600</y>
       <w>310</w>
       <h>140</h>
     </coordinates>
@@ -226,7 +226,7 @@ dictionary&lt;&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1250</x>
+      <x>1290</x>
       <y>470</y>
       <w>540</w>
       <h>80</h>
@@ -273,54 +273,52 @@ TakeTurn(C Character):void</panel_attributes>
       <w>90</w>
       <h>220</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>620</y>
-      <w>100</w>
-      <h>30</h>
+      <x>720</x>
+      <y>590</y>
+      <w>80</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
+      <x>320</x>
       <y>490</y>
-      <w>150</w>
-      <h>160</h>
+      <w>120</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>130.0;140.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1370</x>
+      <x>1380</x>
       <y>310</y>
-      <w>160</w>
+      <w>140</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>130.0;50.0;20.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
+      <x>430</x>
       <y>240</y>
-      <w>170</w>
+      <w>130</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>130.0;10.0;30.0;50.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -330,8 +328,7 @@ TakeTurn(C Character):void</panel_attributes>
       <w>170</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;150.0;140.0</additional_attributes>
   </element>
   <element>
@@ -342,8 +339,7 @@ TakeTurn(C Character):void</panel_attributes>
       <w>170</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;50.0;150.0;10.0</additional_attributes>
   </element>
   <element>
@@ -414,15 +410,15 @@ TakeTurn(C Character):void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1600</x>
+      <x>1640</x>
       <y>280</y>
-      <w>370</w>
+      <w>330</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;190.0;350.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -432,21 +428,19 @@ TakeTurn(C Character):void</panel_attributes>
       <w>180</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
+      <x>410</x>
       <y>540</y>
-      <w>190</w>
-      <h>110</h>
+      <w>50</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;90.0;50.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;30.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -467,29 +461,28 @@ TakeTurn(C Character):void</panel_attributes>
     <coordinates>
       <x>350</x>
       <y>840</y>
-      <w>170</w>
-      <h>140</h>
+      <w>130</w>
+      <h>150</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;implements&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>350</x>
-      <y>760</y>
-      <w>70</w>
-      <h>100</h>
+      <y>730</y>
+      <w>90</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;80.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>960</y>
+      <x>460</x>
+      <y>970</y>
       <w>270</w>
       <h>60</h>
     </coordinates>
@@ -501,7 +494,7 @@ Use():void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
+      <x>470</x>
       <y>850</y>
       <w>270</w>
       <h>70</h>
@@ -530,35 +523,32 @@ Attack():decimal</panel_attributes>
     <coordinates>
       <x>10</x>
       <y>620</y>
-      <w>190</w>
+      <w>60</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;110.0;40.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>730</x>
       <y>720</y>
-      <w>190</w>
+      <w>60</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;implements&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;130.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>320</x>
       <y>620</y>
-      <w>280</w>
+      <w>170</w>
       <h>320</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;implements&gt;&gt;</panel_attributes>
-    <additional_attributes>220.0;300.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>150.0;300.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
