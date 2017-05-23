@@ -188,7 +188,8 @@ R Random()
     </coordinates>
     <panel_attributes>GameRules/controller
 --
--D DiceBag(){}</panel_attributes>
+-D DiceBag(){}
+dictionary&lt;&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

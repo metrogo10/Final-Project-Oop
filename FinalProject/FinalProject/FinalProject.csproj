@@ -54,7 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models1\Item.cs" />
+    <Compile Include="Interfaces\IAttackable.cs" />
+    <Compile Include="Interfaces\IEquipable.cs" />
+    <Compile Include="Interfaces\IUsable.cs" />
+    <Compile Include="Models1\Items\DefensiveItem.cs" />
+    <Compile Include="Models1\Items\Item.cs" />
+    <Compile Include="Models1\Items\OffensiveItem.cs" />
+    <Compile Include="Models1\Items\UsefulItem.cs" />
     <Compile Include="NumAttribute.cs" />
     <Compile Include="Models1\Race.cs" />
     <Page Include="MainWindow.xaml">
