@@ -54,10 +54,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="Models1\NumDependancy.cs" />
     <Compile Include="Models1\Item.cs" />
     <Compile Include="Models1\Operand.cs" />
     <Compile Include="Models1\NumAttribute.cs" />
+=======
+    <Compile Include="Interfaces\IAttackable.cs" />
+    <Compile Include="Interfaces\IEquipable.cs" />
+    <Compile Include="Interfaces\IUsable.cs" />
+    <Compile Include="Models1\Items\DefensiveItem.cs" />
+    <Compile Include="Models1\Items\Item.cs" />
+    <Compile Include="Models1\Items\OffensiveItem.cs" />
+    <Compile Include="Models1\Items\UsefulItem.cs" />
+    <Compile Include="NumAttribute.cs" />
+>>>>>>> a01df597bf6ec4abc36bf2caf8993a4cabb434e6
     <Compile Include="Models1\Race.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

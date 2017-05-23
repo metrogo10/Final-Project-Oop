@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>9</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>45</x>
-      <y>72</y>
-      <w>216</w>
-      <h>180</h>
+      <x>20</x>
+      <y>20</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Driver
 --
@@ -17,10 +17,10 @@ _+Main():void_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>837</x>
-      <y>117</y>
-      <w>216</w>
-      <h>180</h>
+      <x>970</x>
+      <y>80</y>
+      <w>240</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Screen/view
 --
@@ -32,10 +32,10 @@ _+Main():void_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>405</x>
-      <y>531</y>
-      <w>432</w>
-      <h>126</h>
+      <x>440</x>
+      <y>290</y>
+      <w>480</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>Character/model
 --
@@ -43,16 +43,24 @@ _+Main():void_</panel_attributes>
 -C Class(){get;set;}
 -Stats Dictionary&lt;String,CharacterData&gt;
 -inventory list&lt;item&gt;
---</panel_attributes>
+-equipment list&lt;IEquipable&gt;
+--
++Addstat():void
++removestat():void
++addItem():void
++dropItem():void
++useItem():void
++equipItem():void
++RemoveItem():Void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>414</x>
-      <y>72</y>
-      <w>387</w>
-      <h>189</h>
+      <x>440</x>
+      <y>20</y>
+      <w>430</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>GameEngine/controller
 --
@@ -64,10 +72,10 @@ _+Run():Void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>315</y>
-      <w>234</w>
-      <h>189</h>
+      <x>980</x>
+      <y>350</y>
+      <w>260</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Enemy:Character/model
 --
@@ -82,79 +90,87 @@ _+Run():Void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>279</y>
-      <w>243</w>
-      <h>189</h>
+      <x>30</x>
+      <y>160</y>
+      <w>270</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Race/model
 --
 -Name String{get;set;}
--Desc String{get;set;}</panel_attributes>
+-Desc String{get;set;}
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>495</y>
-      <w>243</w>
-      <h>189</h>
+      <x>30</x>
+      <y>330</y>
+      <w>270</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>Class/model
 --
 -Name String{get;set;}
--Desc String{get;set;}</panel_attributes>
+-Desc String{get;set;}
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>18</x>
-      <y>729</y>
-      <w>234</w>
-      <h>189</h>
+      <x>20</x>
+      <y>500</y>
+      <w>310</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>Weapon:Item/model
+    <panel_attributes>OffensiveItem:Item/model
 --
 -DieNumber{get;set;}
 -DmgDie int{get;set;}
--DmgMod int{get;set;}</panel_attributes>
+-DmgMod int{get;set;}
+-</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>729</y>
-      <w>216</w>
-      <h>189</h>
+      <x>400</x>
+      <y>630</y>
+      <w>310</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Item/model
 --
--Price int{get;set}</panel_attributes>
+-Price int{get;set}
+-Wheight double{get;set;}
+-name string{get;set;}
+-description{get;set;}
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>729</y>
-      <w>216</w>
-      <h>189</h>
+      <x>770</x>
+      <y>630</y>
+      <w>300</w>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>Armor:Item/model
+    <panel_attributes>DefensiveItem:Item/model
 --
--Def int{get;set;}</panel_attributes>
+-Def int{get;set;}
+-</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>972</x>
-      <y>414</y>
-      <w>360</w>
-      <h>189</h>
+      <x>990</x>
+      <y>220</y>
+      <w>400</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>DiceBag/controller
 --
@@ -166,10 +182,10 @@ DiceBag(x int,y int,z int)&lt;&lt;ctor&gt;&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>999</x>
-      <y>729</y>
-      <w>216</w>
-      <h>189</h>
+      <x>1260</x>
+      <y>360</y>
+      <w>240</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>Die/model
 --
@@ -181,37 +197,39 @@ R Random()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1188</x>
-      <y>108</y>
-      <w>216</w>
-      <h>189</h>
+      <x>1300</x>
+      <y>60</y>
+      <w>240</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>GameRules/controller
 --
--D DiceBag(){}</panel_attributes>
+-D DiceBag(){}
+dictionary&lt;&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>405</x>
-      <y>279</y>
-      <w>261</w>
-      <h>189</h>
+      <x>540</x>
+      <y>140</y>
+      <w>290</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>CharacterData/model
 --
 -Name String{get;set;}
--stat int{get;set;}</panel_attributes>
+-stat int{get;set;}
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1449</x>
-      <y>522</y>
-      <w>486</w>
-      <h>180</h>
+      <x>1250</x>
+      <y>470</y>
+      <w>540</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>childGenerator/controller
 --
@@ -222,10 +240,10 @@ Child(c1 Character, c2 Character):Character</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1512</x>
-      <y>297</y>
-      <w>333</w>
-      <h>171</h>
+      <x>1580</x>
+      <y>220</y>
+      <w>370</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>CharacterCreation/controller
 --
@@ -235,10 +253,10 @@ Child(c1 Character, c2 Character):Character</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1521</x>
-      <y>108</y>
-      <w>333</w>
-      <h>171</h>
+      <x>1600</x>
+      <y>60</y>
+      <w>370</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Cobmat/controller
 --
@@ -250,104 +268,104 @@ TakeTurn(C Character):void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>702</x>
-      <y>495</y>
-      <w>153</w>
-      <h>54</h>
+      <x>910</x>
+      <y>280</y>
+      <w>90</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>150.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>567</x>
-      <y>720</y>
-      <w>162</w>
-      <h>27</h>
+      <x>700</x>
+      <y>620</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>243</x>
-      <y>720</y>
-      <w>135</w>
-      <h>27</h>
+      <x>270</x>
+      <y>490</y>
+      <w>150</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>130.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1206</x>
-      <y>594</y>
-      <w>216</w>
-      <h>153</h>
+      <x>1370</x>
+      <y>310</y>
+      <w>160</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;150.0;140.0;10.0</additional_attributes>
+    <additional_attributes>130.0;50.0;20.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>459</y>
-      <w>153</w>
-      <h>90</h>
+      <x>410</x>
+      <y>240</y>
+      <w>170</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>130.0;10.0;30.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>261</x>
-      <y>270</y>
-      <w>225</w>
-      <h>279</h>
+      <x>290</x>
+      <y>150</y>
+      <w>170</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;290.0</additional_attributes>
+    <additional_attributes>10.0;10.0;150.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>261</x>
-      <y>486</y>
-      <w>162</w>
-      <h>63</h>
+      <x>290</x>
+      <y>280</y>
+      <w>170</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;50.0</additional_attributes>
+    <additional_attributes>10.0;50.0;150.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>54</y>
-      <w>180</w>
-      <h>45</h>
+      <x>250</x>
+      <y>0</y>
+      <w>210</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>63</y>
-      <w>414</w>
-      <h>63</h>
+      <x>860</x>
+      <y>10</y>
+      <w>460</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
@@ -357,77 +375,190 @@ TakeTurn(C Character):void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1044</x>
-      <y>99</y>
-      <w>162</w>
-      <h>45</h>
+      <x>1200</x>
+      <y>60</y>
+      <w>120</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;20.0;160.0;30.0</additional_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1395</x>
-      <y>279</y>
-      <w>135</w>
-      <h>45</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;calls&gt;&gt;
-</panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1395</x>
-      <y>90</y>
-      <w>144</w>
-      <h>45</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;calls&gt;&gt;
-</panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1836</x>
-      <y>450</y>
-      <w>99</w>
+      <x>1530</x>
+      <y>150</y>
+      <w>130</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;calls&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>50.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1323</x>
-      <y>279</y>
-      <w>189</w>
-      <h>153</h>
+      <x>1520</x>
+      <y>40</y>
+      <w>110</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;150.0;90.0;10.0</additional_attributes>
+&lt;&lt;calls&gt;&gt;
+</panel_attributes>
+    <additional_attributes>80.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>351</x>
-      <y>648</y>
+      <x>1600</x>
+      <y>280</y>
+      <w>370</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;calls&gt;&gt;
+</panel_attributes>
+    <additional_attributes>10.0;190.0;350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1380</x>
+      <y>150</y>
       <w>180</w>
-      <h>99</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;90.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>540</y>
+      <w>190</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>840</y>
+      <w>300</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>UsefulItem:Item/model
+--
+-Stat{get;set;}
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>840</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>760</y>
+      <w>70</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>960</y>
+      <w>270</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>IUsable
+--
+Use():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>850</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>IEquipable
+--
+Equip():void
+Remove():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>730</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>IAttackable
+--
+Attack():decimal</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>10</x>
+      <y>620</y>
+      <w>190</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>720</y>
+      <w>190</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>620</y>
+      <w>280</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>220.0;300.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
