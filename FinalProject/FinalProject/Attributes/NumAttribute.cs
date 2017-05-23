@@ -11,6 +11,5 @@ namespace FinalProject
         private Dictionary<string, decimal> dependancies;
         public decimal GetValue() { return Value; }
         public void SetValue(decimal Value) { this.Value = Value; }
-        
     }
 }

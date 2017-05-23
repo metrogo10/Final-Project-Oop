@@ -12,5 +12,9 @@ namespace FinalProject.Models1.Items
         {
             throw new NotImplementedException();
         }
+        public void Remove()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

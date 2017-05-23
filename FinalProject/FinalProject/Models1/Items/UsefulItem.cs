@@ -8,6 +8,7 @@ namespace FinalProject.Models1.Items
 {
     public class UsefulItem : Item, IUsable
     {
+        decimal stat = new decimal();
         public void Use()
         {
             throw new NotImplementedException();
