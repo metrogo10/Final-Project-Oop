@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class CharacterData<E>
+    public class CharacterData
     {
         private string Name;
-		private E data;
 
         public String GetName() { return Name; }
     }

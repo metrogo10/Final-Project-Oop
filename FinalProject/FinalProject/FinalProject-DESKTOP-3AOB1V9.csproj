@@ -54,10 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models1\NumDependancy.cs" />
     <Compile Include="Models1\Item.cs" />
-    <Compile Include="Models1\Operand.cs" />
-    <Compile Include="Models1\NumAttribute.cs" />
+    <Compile Include="NumAttribute.cs" />
     <Compile Include="Models1\Race.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
