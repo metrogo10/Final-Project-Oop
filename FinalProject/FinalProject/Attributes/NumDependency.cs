@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalProject.Models1
 {
 
-    //This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
-    //This class has one method, which takes in a decimal, and performs math on it based on the Operand.
-    public class NumDependancy : IComparable<NumDependancy>
+	//This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
+	//This class has one method, which takes in a decimal, and performs math on it based on the Operand.
+	public class NumDependency : IComparable<NumDependency>
     {
         //This is telling us what operation we're performing.
         public Operand type;
@@ -96,7 +92,7 @@ namespace FinalProject.Models1
 
         //The constructor takes in objects, bools, and a type. The type is stored directly. The objects are cast based on the bools, ensuring that our casts are always safe.
         //Because we're using objects which represent both possabilties of each value, we make our constructor more dynamic.
-        public NumDependancy(Operand type, bool v1IsRef, bool v2IsRef, object v1, object v2)
+        public NumDependency(Operand type, bool v1IsRef, bool v2IsRef, object v1, object v2)
         {
             //By using object we can cut down on data input, as long as our bools line up we can always cast safely.
             if (v1IsRef)
@@ -170,7 +166,7 @@ namespace FinalProject.Models1
         }
 
         //This will be used to sort by order of operations when the dependancies are put into a list.
-        public int CompareTo(NumDependancy other)
+        public int CompareTo(NumDependency other)
         {
             throw new NotImplementedException();
         }

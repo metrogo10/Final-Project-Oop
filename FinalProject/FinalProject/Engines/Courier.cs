@@ -7,25 +7,25 @@ using FinalProject.Models1;
 
 namespace FinalProject.Engines
 {
-	/*
-	 * The Courier is a static class which serves as an engine to fetch and deliver information for instances of attribute or dependancy. 
-	 * This allows a dependancy to access the attribute it is stored in, and allows attributes to access other attributes in the same character.
-	 * 
-	 * It is named so because it is used to carry information back and forth between dependancies, attributes, and characters,
-	 * allowing bottom level classes to speak with the top level classes they are stored within.
-	 */
+
+	/// <summary>
+	/// The Courier is a static class which serves as an engine to fetch and deliver information for instances of attribute or dependancy. 
+	/// This allows a dependancy to access the attribute it is stored in, and allows attributes to access other attributes in the same character.
+	/// </summary>
+	/// <remarks>
+	/// It is named so because it is used to carry information back and forth between dependancies, attributes, and characters,
+	/// allowing bottom level classes to speak with the top level classes they are stored within.
+	/// </remarks>
 	public static class Courier
 	{
-		/*
-		 * ValidateDependancies() is designed to ensure that there are no potential conflicts within an attribute's dependancies.
-		 * This method is to be used during the declaration of an attribute, to ensure that errors will not appear in the future.
-		 * Not to be used after declaration.
-		 * 
-		 * This method will run through all other dependancies on the same character as the one it is checking, and look for conflicts.
-		 * If any are found, it will return false. Our GUI should run this method for each field the user enters, and if even one returns false,
-		 * mark the ones that did, popup an error message, and disalow continuation. This method is primarily a switchboard, which delegates and rerouts the task to private methods found below.
-		 */
-		public static bool ValidateDependacy(Character character, NumAttribute attribute, NumDependancy dependancy)
+		/// <summary>
+		/// Analyzes a dependency and returns whether or not it is valid.
+		/// </summary>
+		/// <param name="character">The character to analyze.</param>
+		/// <param name="attribute">The characters attribute to check.</param>
+		/// <param name="dependency">The dependency to check with.</param>
+		/// <returns>Whether the dependency is valid.</returns>
+		public static bool ValidateDependacy(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -51,7 +51,7 @@ namespace FinalProject.Engines
 			return isValid;
 		}
 
-		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -67,7 +67,7 @@ namespace FinalProject.Engines
 			return isValid;
 		}
 
-		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -76,7 +76,7 @@ namespace FinalProject.Engines
 			return isValid;
 		}
 
-		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -85,7 +85,7 @@ namespace FinalProject.Engines
 			return isValid;
 		}
 
-		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -94,7 +94,7 @@ namespace FinalProject.Engines
 			return isValid;
 		}
 
-		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -109,7 +109,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-		private static decimal FindHighestPossible(Character character, NumAttribute attribute, NumDependancy dependancy)
+		private static decimal FindHighestPossible(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
 
 		}
