@@ -111,7 +111,7 @@ namespace FinalProject.Engines
 		}
 		private static decimal FindHighestPossible(Character character, NumAttribute attribute, NumDependency dependancy)
 		{
-
+		    return 0;
 		}
 	}
 }
