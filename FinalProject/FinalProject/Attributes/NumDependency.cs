@@ -12,18 +12,18 @@ namespace FinalProject.Models1
     public class NumDependancy : IComparable<NumDependancy>
     {
         //This is telling us what operation we're performing.
-        protected Operand type;
+        public Operand type;
         //The priority designates the order of operations. This is used to run dependancy checks in the correct order.
         private int priority;
         //Since we're allowing for the user to set dependancies based on numbers, or based on other fields, we need to verify which of those two options they're doing for each value.
-        protected bool v1IsRef { get; set; }
-        protected bool v2IsRef { get; set; }
+        public bool v1IsRef { get; set; }
+        public bool v2IsRef { get; set; }
 
         //Only two of these four will matter, depending on reference vs direct number.
-        protected decimal v1NonRef { get; set; }
-        protected decimal v2NonRef { get; set; }
-        protected string v1Ref { get; set; }
-        protected string v2Ref { get; set; }
+        public decimal v1NonRef { get; set; }
+        public decimal v2NonRef { get; set; }
+        public string v1Ref { get; set; }
+        public string v2Ref { get; set; }
 
         //Smart-properties for values 1 & 2, which returns the correct value based on the above bools.
         public decimal Value1
