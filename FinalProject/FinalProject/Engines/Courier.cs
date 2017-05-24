@@ -47,12 +47,7 @@ namespace FinalProject.Engines
 			}
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
+        private static bool ValidateQuotiant(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
 		{
 			bool isValid = true;
 			if (dependancy.v2IsRef)
@@ -65,12 +60,7 @@ namespace FinalProject.Engines
 			}
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
+		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -78,12 +68,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
+		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -91,12 +76,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
+		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
 		{
 			bool isValid = true;
 
@@ -104,12 +84,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
 		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
 		{
 			bool isValid = true;
 			if (dependancy.v1IsRef)

@@ -1,5 +1,4 @@
 ﻿using System;
-<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +7,7 @@ namespace FinalProject.Models1
 {
     //This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
     //This class has one method, which takes in a decimal, and performs math on it based on the Operand.
-    public class NumDependancy : IComparable<NumDependancy>
-=======
-
-namespace FinalProject.Models1
-{
-
-	//This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
-	//This class has one method, which takes in a decimal, and performs math on it based on the Operand.
-	public class NumDependency : IComparable<NumDependency>
->>>>>>> origin/master
+    public class NumDependency : IComparable<NumDependency>
     {
         //This is telling us what operation we're performing.
         public Operand type;
@@ -164,7 +154,6 @@ namespace FinalProject.Models1
                 case Operand.SumOf:
                     value = Value1 + Value2;
                     break;
-
             }
             return value;
         }
