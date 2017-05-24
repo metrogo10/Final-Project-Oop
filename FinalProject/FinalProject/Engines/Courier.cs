@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Models1;
+using FinalProject.Models1.FinalProject.Models1;
 namespace FinalProject.Engines
 {
 
@@ -47,12 +48,7 @@ namespace FinalProject.Engines
 			}
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
+        private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
 			if (dependancy.v2IsRef)
@@ -65,12 +61,7 @@ namespace FinalProject.Engines
 			}
 			return isValid;
 		}
-<<<<<<< HEAD
 		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
 		{
 			bool isValid = true;
 
@@ -78,12 +69,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
 		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
 		{
 			bool isValid = true;
 
@@ -91,12 +77,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
 		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
-		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
 		{
 			bool isValid = true;
 
@@ -104,12 +85,7 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-<<<<<<< HEAD
-		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependancy dependancy)
-=======
-
 		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependency dependancy)
->>>>>>> origin/master
 		{
 			bool isValid = true;
 			if (dependancy.v1IsRef)
