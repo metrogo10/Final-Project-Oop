@@ -9,7 +9,7 @@ namespace FinalProject
     public class NumAttribute
     {
         private decimal Value;
-        public List<NumDependancy> Dependancies { get; set; }
+        public List<NumDependency> Dependancies { get; set; }
         public decimal GetValue() { return Value; }
         public void SetValue(decimal Value) { this.Value = Value; }
     }
