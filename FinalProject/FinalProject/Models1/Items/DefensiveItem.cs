@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Interfaces;
+using FinalProject.Interfaces;
 namespace FinalProject.Models1.Items
 {
     public class DefensiveItem : Item, IEquipable
     {
-        public void Equip()
+        public DefensiveItem(string name, string description, int price, double wheight) : base(name, description, price, wheight) { }
+        public void Equip(Character c)
         {
-            throw new NotImplementedException();
+            c.AddEquipment(this);
         }
-        public void Remove()
+        public void Remove(Character c)
         {
-            throw new NotImplementedException();
+            c.UnEquip(this);
         }
     }
 }

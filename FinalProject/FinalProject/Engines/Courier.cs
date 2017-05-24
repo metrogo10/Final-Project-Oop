@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Models1;
-
 namespace FinalProject.Engines
 {
 	/*
@@ -28,7 +27,6 @@ namespace FinalProject.Engines
 		public static bool ValidateDependacy(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
-
 			switch (dependancy.Type)
 			{
 				case Operand.QuotiantOf:
@@ -47,14 +45,11 @@ namespace FinalProject.Engines
 					isValid = ValidateLessThan(character, attribute, dependancy);
 					break;
 			}
-
 			return isValid;
 		}
-
 		private static bool ValidateQuotiant(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
-
 			if (dependancy.v2IsRef)
 			{
 
@@ -63,10 +58,8 @@ namespace FinalProject.Engines
 			{
 				isValid = false;
 			}
-
 			return isValid;
 		}
-
 		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
@@ -75,7 +68,6 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-
 		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
@@ -84,7 +76,6 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-
 		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
@@ -93,11 +84,9 @@ namespace FinalProject.Engines
 
 			return isValid;
 		}
-
 		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependancy dependancy)
 		{
 			bool isValid = true;
-
 			if (dependancy.v1IsRef)
 			{
 				
@@ -106,7 +95,6 @@ namespace FinalProject.Engines
 			{
 
 			}
-
 			return isValid;
 		}
 		private static decimal FindHighestPossible(Character character, NumAttribute attribute, NumDependancy dependancy)

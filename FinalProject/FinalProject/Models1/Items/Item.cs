@@ -12,6 +12,10 @@ namespace FinalProject
         protected String Description;
         protected int Price;
         protected double Wheight;
+        public Item(string name, string description, int price, double wheight)
+        {
+            this.Name = name; this.Price = price; this.Wheight = wheight;this.Description = description;
+        }
         public double getWheight() { return Wheight; }
         public void setWheight(double wheight) { this.Wheight = wheight; }
         public int getPrice() { return Price; }
