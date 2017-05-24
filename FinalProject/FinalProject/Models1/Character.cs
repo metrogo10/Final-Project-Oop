@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,15 @@ namespace FinalProject
         protected String Name;
         protected Dictionary<string, CharacterAttribute> Stats;
         protected List<Item> Inventory;
+        protected List<IEquipable> HeldItems;
         public Race GetRace() { return R; }
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
         public void SetClass(Archetype C) { this.C = C; }
-        public CharacterAttribute GetStat(int x, string s)
+        public CharacterAttribute GetStat(string s)
         {
             CharacterAttribute CD = null;
             if (!string.IsNullOrEmpty(s)) { if (Stats.Keys.Contains(s)) { Stats.TryGetValue(s, out CD); } }
-            else if (x > -1) { if (Stats.Count>=x) { CD = Stats.Values.ElementAt(x); } }
             return CD;
         }
         public String getName()
@@ -35,5 +36,9 @@ namespace FinalProject
         public void AddStat(CharacterAttribute CD) { Stats.Add(CD.GetName(),CD); }
         public void AddItem(Item IT) { Inventory.Add(IT); }
         public List<Item> GetItems() { return Inventory; }
+        public void DropItem(Item IT) { Inventory.Remove(IT); }
+        public void AddEquipment(IEquipable E) { if (Inventory.Contains((Item)E) ){ Inventory.Remove((Item)E); } HeldItems.Add(E); }
+        public List<IEquipable> GetEquipment() { return HeldItems; }
+        public void UnEquip(IEquipable E) { HeldItems.Remove(E); Inventory.Add((Item)E); }
     }
 }

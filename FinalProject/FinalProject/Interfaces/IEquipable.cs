@@ -7,7 +7,7 @@ namespace FinalProject.Interfaces
 {
     public interface IEquipable
     {
-        void Equip();
-        void Remove();
+        void Equip(Character c );
+        void Remove(Character c);
     }
 }

@@ -7,6 +7,6 @@ namespace FinalProject.Interfaces
 {
     public interface IUsable
     {
-        void Use();
+        decimal Use(Character c);
     }
 }
