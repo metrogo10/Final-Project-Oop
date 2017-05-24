@@ -1,4 +1,15 @@
 ﻿using System;
+<<<<<<< HEAD
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace FinalProject.Models1
+{
+    //This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
+    //This class has one method, which takes in a decimal, and performs math on it based on the Operand.
+    public class NumDependancy : IComparable<NumDependancy>
+=======
 
 namespace FinalProject.Models1
 {
@@ -6,6 +17,7 @@ namespace FinalProject.Models1
 	//This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
 	//This class has one method, which takes in a decimal, and performs math on it based on the Operand.
 	public class NumDependency : IComparable<NumDependency>
+>>>>>>> origin/master
     {
         //This is telling us what operation we're performing.
         public Operand type;
@@ -14,13 +26,11 @@ namespace FinalProject.Models1
         //Since we're allowing for the user to set dependancies based on numbers, or based on other fields, we need to verify which of those two options they're doing for each value.
         public bool v1IsRef { get; set; }
         public bool v2IsRef { get; set; }
-
         //Only two of these four will matter, depending on reference vs direct number.
         public decimal v1NonRef { get; set; }
         public decimal v2NonRef { get; set; }
         public string v1Ref { get; set; }
         public string v2Ref { get; set; }
-
         //Smart-properties for values 1 & 2, which returns the correct value based on the above bools.
         public decimal Value1
         {
@@ -42,7 +52,6 @@ namespace FinalProject.Models1
                     return v2NonRef;
             }
         }
-
         public Operand Type
         {
             get { return type; }
@@ -52,7 +61,6 @@ namespace FinalProject.Models1
                 UpdatePriority();
             }
         }
-
         private void UpdatePriority()
         {
             switch (type)
@@ -89,7 +97,6 @@ namespace FinalProject.Models1
                     break;
             }
         }
-
         //The constructor takes in objects, bools, and a type. The type is stored directly. The objects are cast based on the bools, ensuring that our casts are always safe.
         //Because we're using objects which represent both possabilties of each value, we make our constructor more dynamic.
         public NumDependency(Operand type, bool v1IsRef, bool v2IsRef, object v1, object v2)
@@ -103,7 +110,6 @@ namespace FinalProject.Models1
             {
                 v1NonRef = (decimal)v1;
             }
-
             if (v2IsRef)
             {
                 v2Ref = (string)v2;
@@ -112,9 +118,7 @@ namespace FinalProject.Models1
             {
                 v2NonRef = (decimal)v2;
             }
-
         }
-
         //This is the method which will be run on a value to make sure it conforms to all required dependancies.
         public decimal CheckDependancy(decimal value)
         {
@@ -164,7 +168,6 @@ namespace FinalProject.Models1
             }
             return value;
         }
-
         //This will be used to sort by order of operations when the dependancies are put into a list.
         public int CompareTo(NumDependency other)
         {

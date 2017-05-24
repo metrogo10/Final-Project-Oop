@@ -9,9 +9,11 @@ namespace FinalProject.Models1.Items
     public class UsefulItem : Item, IUsable
     {
         decimal stat = new decimal();
-        public void Use()
+        public UsefulItem(string name, string description, int price, double wheight):base(name, description, price, wheight){ }
+        public decimal Use(Character c)
         {
-            throw new NotImplementedException();
+            c.DropItem(this);
+            return this.stat;
         }
     }
 }
