@@ -18,11 +18,10 @@ namespace FinalProject
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
         public void SetClass(Archetype C) { this.C = C; }
-        public CharacterAttribute GetStat(int x, string s)
+        public CharacterAttribute GetStat(string s)
         {
             CharacterAttribute CD = null;
             if (!string.IsNullOrEmpty(s)) { if (Stats.Keys.Contains(s)) { Stats.TryGetValue(s, out CD); } }
-            else if (x > -1) { if (Stats.Count>=x) { CD = Stats.Values.ElementAt(x); } }
             return CD;
         }
         public String getName()
