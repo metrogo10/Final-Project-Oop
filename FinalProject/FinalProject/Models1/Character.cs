@@ -12,6 +12,7 @@ namespace FinalProject
         protected Archetype C;
         protected String Name;
         protected Dictionary<string, CharacterAttribute> Stats;
+		public Dictionary<string, NumAttribute> NumAttributes { get; set; }
         protected List<Item> Inventory;
         protected List<IEquipable> HeldItems;
         public Race GetRace() { return R; }
