@@ -18,88 +18,261 @@ namespace FinalProject.Engines
 	public static class Courier
 	{
 		/// <summary>
-		/// Analyzes a dependency and returns whether or not it is valid.
+		/// Analyzes an attribute and returns whether or not it is valid.
 		/// </summary>
 		/// <param name="character">The character to analyze.</param>
 		/// <param name="attribute">The characters attribute to check.</param>
 		/// <param name="dependency">The dependency to check with.</param>
-		/// <returns>Whether the dependency is valid.</returns>
-		public static bool ValidateDependacy(Character character, NumAttribute attribute, NumDependency dependancy)
+		/// <returns>A string array containing useful error messages. If empty, no errors were found.</returns>
+		public static string[] ValidateAttribute(Character character, NumAttribute attribute)
 		{
-			bool isValid = true;
-			switch (dependancy.Type)
+			List<string> errors = new List<string>();
+			attribute.setMax(FindHighestPossible(character, attribute));
+			attribute.setMin(FindLowestPossible(character, attribute));
+			if (attribute.getMax() < attribute.getMin())
 			{
-				case Operand.QuotiantOf:
-					isValid = ValidateQuotiant(character, attribute, dependancy);
-					break;
-				case Operand.GreaterOrEqualTo:
-					isValid = ValidateGreaterThanEqualTo(character, attribute, dependancy);
-					break;
-				case Operand.GreaterThan:
-					isValid = ValidateGreaterThan(character, attribute, dependancy);
-					break;
-				case Operand.LessOrEqualTo:
-					isValid = ValidateLessThanEqualTo(character, attribute, dependancy);
-					break;
-				case Operand.LessThan:
-					isValid = ValidateLessThan(character, attribute, dependancy);
-					break;
+				errors.Add(attribute.Name + " has a higher minimum value than its maximum value, meaning it can never be correct.");
 			}
-			return isValid;
-		}
-        private static bool ValidateQuotiant(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
-		{
-			bool isValid = true;
-			if (dependancy.v2IsRef)
+			foreach(NumDependency d in attribute.Dependancies)
 			{
-
+				if ((d.type==Operand.QuotiantOf || d.type==Operand.ModuloOf))
+				{
+					if (d.v2IsRef)
+					{
+						if (Zeroable(character, character.NumAttributes[d.v2Ref]))
+						{
+							errors.Add(attribute.Name + " is derived by dividing by zero, or could potentially be derived by dividing by zero.\n" +
+								"Ensure that no attributes depended upon by " + attribute.Name + " can potentially be zero.");
+						}
+					}
+					else if (d.Value2 == 0)
+					{
+						errors.Add(attribute.Name + " is derived by dividing by zero, or could potentially be derived by dividing by zero.\n" +
+								"Ensure that no attributes depended upon by " + attribute.Name + " can potentially be zero.");
+					}
+				}
 			}
-			else if (dependancy.Value2 == 0)
+			return errors.ToArray();
+		}
+
+		/// <summary>
+		/// Takes an instance of character and a specific attribute within that character, and returns the highest value that attribute can potentially have.
+		/// </summary>
+		/// <param name="character">The instance of character your attribute is stored within.</param>
+		/// <param name="attribute">The attribute you are validating</param>
+		/// <returns>The highest number the attribute is allowed to be based on its dependencies</returns>
+		private static decimal FindHighestPossible(Character character, NumAttribute attribute)
+		{
+		    decimal highestPossible = decimal.MaxValue;
+
+			//This method is recursive. To save on memory, if it runs once it'll store the value it returns in the attribute's max value.
+			//If this method is called on an attribute it has already been called on, it will simply return the already stored max value.
+			//In order to ensure we can validate attributes when a player updates them, we should set max and min values to null in any attribute that is edited.
+			if (attribute.getMax()!=null)
 			{
-				isValid = false;
-			}
-			return isValid;
-		}
-		private static bool ValidateGreaterThanEqualTo(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
-		{
-			bool isValid = true;
-
-
-
-			return isValid;
-		}
-		private static bool ValidateGreaterThan(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
-		{
-			bool isValid = true;
-
-
-
-			return isValid;
-		}
-		private static bool ValidateLessThanEqualTo(Character character, NumAttribute attribute, Models1.NumDependency dependancy)
-		{
-			bool isValid = true;
-
-
-
-			return isValid;
-		}
-		private static bool ValidateLessThan(Character character, NumAttribute attribute, NumDependency dependancy)
-		{
-			bool isValid = true;
-			if (dependancy.v1IsRef)
-			{
-				
+				highestPossible = (decimal) attribute.getMax();
 			}
 			else
 			{
+				foreach(NumDependency d in attribute.Dependancies)
+				{
+					// >Inb4 longest switch statement I've ever written.
+					// >It's super ugly, but super functional.
+					// >I feel fulfilled and disgusted simultaneously
+					// >Mfw: http://i.imgur.com/c65CEFK.png
+					switch (d.type)
+					{
+						case Operand.Equals:
+							if (d.v1IsRef)
+							{
+								highestPossible = FindHighestPossible(character, character.NumAttributes[d.v1Ref]);
+							}
+							else
+							{
+								highestPossible = d.Value1;
+							}
 
+							attribute.setMax(highestPossible);
+							break;
+						case Operand.DifferenceOf:
+							decimal x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							decimal y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							highestPossible = x - y;
+							attribute.setMax(highestPossible);
+							break;
+						case Operand.LessThan:
+						case Operand.LessOrEqualTo:
+							if (d.v1IsRef)
+							{
+								if (character.NumAttributes[d.v1Ref].getMax() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > highestPossible)
+								{
+									highestPossible = FindHighestPossible(character, character.NumAttributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+								}
+							}
+							else
+							{
+								if (d.Value1 > highestPossible)
+									highestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+							}
+							break;
+						case Operand.LogOf:
+							break;
+						case Operand.ModuloOf:
+							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							highestPossible = x % y;
+							attribute.setMax(highestPossible);
+							break;
+						case Operand.PowerOf:
+							break;
+						case Operand.ProductOf:
+							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							highestPossible = x * y;
+							attribute.setMax(highestPossible);
+							break;
+						case Operand.QuotiantOf:
+							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							highestPossible = x / y;
+							attribute.setMax(highestPossible);
+							break;
+						case Operand.SumOf:
+							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							highestPossible = x + y;
+							attribute.setMax(highestPossible);
+							break;
+					}
+				}
 			}
-			return isValid;
+
+			attribute.setMax(highestPossible);
+			return highestPossible;
 		}
-		private static decimal FindHighestPossible(Character character, NumAttribute attribute, NumDependency dependancy)
+		
+		/// <summary>
+		/// Takes an instance of character and a specific attribute within that character, and returns the lowest value that attribute can potentially have.
+		/// </summary>
+		/// <param name="character">The instance of character your attribute is stored within.</param>
+		/// <param name="attribute">The attribute you are validating</param>
+		/// <returns>The lowest number the attribute is allowed to be based on its dependencies</returns>
+		private static decimal FindLowestPossible(Character character, NumAttribute attribute)
 		{
-		    return 0;
+			decimal lowestPossible = -decimal.MaxValue;
+
+			if (attribute.getMin() != null)
+			{
+				lowestPossible = (decimal)attribute.getMin();
+			}
+			else
+			{
+				foreach (NumDependency d in attribute.Dependancies)
+				{
+					switch (d.type)
+					{
+						case Operand.Equals:
+							if (d.v1IsRef)
+							{
+								lowestPossible = FindLowestPossible(character, character.NumAttributes[d.v1Ref]);
+							}
+							else
+							{
+								lowestPossible = d.Value1;
+							}
+
+							attribute.setMin(lowestPossible);
+							break;
+						case Operand.DifferenceOf:
+							decimal x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							decimal y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							lowestPossible = x - y;
+							attribute.setMin(lowestPossible);
+							break;
+						case Operand.LessThan:
+						case Operand.LessOrEqualTo:
+							if (d.v1IsRef)
+							{
+								if (character.NumAttributes[d.v1Ref].getMin() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > lowestPossible)
+								{
+									lowestPossible = FindLowestPossible(character, character.NumAttributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+								}
+							}
+							else
+							{
+								if (d.Value1 > lowestPossible)
+									lowestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+							}
+							break;
+						case Operand.LogOf:
+							break;
+						case Operand.ModuloOf:
+							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							lowestPossible = x % y;
+							attribute.setMin(lowestPossible);
+							break;
+						case Operand.PowerOf:
+							break;
+						case Operand.ProductOf:
+							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							lowestPossible = x * y;
+							attribute.setMin(lowestPossible);
+							break;
+						case Operand.QuotiantOf:
+							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							lowestPossible = x / y;
+							attribute.setMin(lowestPossible);
+							break;
+						case Operand.SumOf:
+							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+
+							lowestPossible = x + y;
+							attribute.setMin(lowestPossible);
+							break;
+					}
+				}
+			}
+			attribute.setMin(lowestPossible);
+			return lowestPossible;
+		}
+
+		/// <summary>
+		/// Checks an attribute to see if it is ever possible for it to be zero. Useful for knowing if it is always safe to divide by this attribute.
+		/// </summary>
+		/// <param name="character">The character the checked attribute is stored within.</param>
+		/// <param name="attribute">The attribute you are checking.</param>
+		/// <returns>Whether or not the attribute can ever, for any reason, at any time, be zero.</returns>
+		private static bool Zeroable(Character character, NumAttribute attribute)
+		{
+			bool zeroable = true;
+
+			if (attribute.Zeroable!=null)
+			{
+				zeroable = (bool) attribute.Zeroable;
+			}
+			else
+			{
+				if (FindHighestPossible(character, attribute) >=0 && FindLowestPossible(character, attribute) <= 0)
+				{
+					zeroable = true;
+				}
+			}
+
+			attribute.Zeroable = zeroable;
+			return zeroable;
 		}
 	}
 }

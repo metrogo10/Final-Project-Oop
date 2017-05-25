@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class CharacterAttribute
+    public class CharacterAttribute : Attribute
     {
         protected string Name;
         protected string Group;
