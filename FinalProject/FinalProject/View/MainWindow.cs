@@ -55,5 +55,17 @@ namespace FinalProject
         {
             Console.WriteLine(this.listbox1.SelectedItem);
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // MainWindow
+            // 
+            this.ClientSize = new System.Drawing.Size(820, 725);
+            this.Name = "MainWindow";
+            this.ResumeLayout(false);
+
+        }
     }
 }
