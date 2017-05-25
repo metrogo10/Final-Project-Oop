@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FinalProject
@@ -11,7 +12,7 @@ namespace FinalProject
     {
         public static void Main()
         {
-            Application.Run(new MainWindow());
-        }
+			Application.Run(new MainWindow());
+		}
     }
 }
