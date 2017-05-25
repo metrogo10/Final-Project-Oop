@@ -12,10 +12,7 @@ namespace FinalProject
     {
         public static void Main()
         {
-			System.Threading.Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
-			//Application.Run(new MainWindow());
-			UITestWindow window = new UITestWindow();
-			window.Show();
-        }
+			Application.Run(new MainWindow());
+		}
     }
 }
