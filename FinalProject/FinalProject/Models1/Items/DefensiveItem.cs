@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Interfaces;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 namespace FinalProject.Models1.Items
 {
     public class DefensiveItem : Item, IEquipable
