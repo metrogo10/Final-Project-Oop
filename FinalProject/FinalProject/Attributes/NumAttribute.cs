@@ -24,5 +24,17 @@ namespace FinalProject
         public void setMax(decimal max){this.max = max;}
         public decimal? getMin(){return min;}
         public void setMin(decimal min){this.min = min;}
-    }
+
+		public override string[] Save()
+		{
+			string[] saveData = new string[Dependancies.Count + 1];
+			int n = 0;
+			saveData[n++] = ("NUMATTRIB :: " + Name + " :: " + Value + " :: " + max + " :: " + min + " :: " + Group + " :: " + group + " :: " + priority);
+			foreach (NumDependency d in Dependancies)
+			{
+				saveData[n++] = d.Save();
+			}
+			return saveData;
+		}
+	}
 }

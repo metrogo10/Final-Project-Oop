@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class CharacterAttribute
+    public abstract class CharacterAttribute
 	{
 		public string Name { get; set; }
 		public readonly int ID;
@@ -56,5 +56,7 @@ namespace FinalProject
 			this.priority = priority;
 			ID = count++;
 		}
-    }
+
+		public abstract string[] Save();
+	}
 }

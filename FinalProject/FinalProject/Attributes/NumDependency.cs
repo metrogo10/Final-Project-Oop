@@ -163,5 +163,10 @@ namespace FinalProject.Models1
         {
             throw new NotImplementedException();
         }
+
+		public string Save()
+		{
+			return (Type + " :: " + priority + " :: " + v1IsRef + " :: " + (v1IsRef ? v1Ref : v1NonRef.ToString()) + " :: " + v2IsRef + " :: " + (v2IsRef ? v2Ref : v2NonRef.ToString()) + " :: ");
+		}
     }
 }
