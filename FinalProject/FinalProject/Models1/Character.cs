@@ -11,20 +11,13 @@ namespace FinalProject
         protected Race R;
         protected Archetype C;
         protected String Name;
-        protected Dictionary<string, CharacterAttribute> Stats;
-		public Dictionary<string, NumAttribute> NumAttributes { get; set; }
+        public Dictionary<string, CharacterAttribute> Attributes { get; set; }
         protected List<Item> Inventory;
         protected List<IEquipable> HeldItems;
         public Race GetRace() { return R; }
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
         public void SetClass(Archetype C) { this.C = C; }
-        public CharacterAttribute GetStat(string s)
-        {
-            CharacterAttribute CD = null;
-            if (!string.IsNullOrEmpty(s)) { if (Stats.Keys.Contains(s)) { Stats.TryGetValue(s, out CD); } }
-            return CD;
-        }
         public String getName()
         {
             return Name;
@@ -33,8 +26,7 @@ namespace FinalProject
         {
             Name = name;
         }
-        public Dictionary<string, CharacterAttribute> GetAllStats() { return Stats;  }
-        public void AddStat(CharacterAttribute CD) { Stats.Add(CD.GetName(),CD); }
+        public void AddStat(CharacterAttribute CD) { Attributes.Add(CD.Name, CD); }
         public void AddItem(Item IT) { Inventory.Add(IT); }
         public List<Item> GetItems() { return Inventory; }
         public void DropItem(Item IT) { Inventory.Remove(IT); }

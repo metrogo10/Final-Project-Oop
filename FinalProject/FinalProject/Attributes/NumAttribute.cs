@@ -6,13 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class NumAttribute : Attribute
+    public class NumAttribute : CharacterAttribute
     {
         private decimal Value;
         private decimal? max = null;
         private decimal? min = null;
+		public NumAttribute(string name, string group, int priority, List<NumDependency> dependencies) : base(name, group, priority)
+		{
+			Dependancies = dependencies;
+			Zeroable = null;
+		}
 		public bool? Zeroable { get; set; }
-		public string Name { get; set; }
         public List<NumDependency> Dependancies{ get; set; }
         public decimal GetValue() { return Value; }
         public void SetValue(decimal Value) { this.Value = Value; }

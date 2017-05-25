@@ -5,20 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class CharacterAttribute : Attribute
-    {
-        protected string Name;
-        protected string Group;
+    public class CharacterAttribute
+	{
+		public string Name { get; set; }
+		public readonly int ID;
+		public static int count;
+
+		public static int Count
+		{
+			get { return count; }
+			set
+			{
+				if (value < count)
+					value = count;
+				count = value;
+			}
+		}
+		protected string Group;
         protected int group;
         protected int priority;
-        public String GetName()
-        {
-            return Name;
-        }
-        public void setName(String name)
-        {
-            Name = name;
-        }
         public int getGroup()
         {
             return group;
@@ -43,5 +48,13 @@ namespace FinalProject
         {
             Group = group;
         }
+
+		public CharacterAttribute(string name, string group, int priority)
+		{
+			Name = name;
+			this.Group = group;
+			this.priority = priority;
+			ID = count++;
+		}
     }
 }

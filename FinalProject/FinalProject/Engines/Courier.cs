@@ -18,6 +18,16 @@ namespace FinalProject.Engines
 	public static class Courier
 	{
 		/// <summary>
+		/// This method allows a dependancy to find the value of another attribute from the character it belongs to.
+		/// </summary>
+		/// <param name="character"></param>
+		/// <param name="attributeReference"></param>
+		public static decimal GetValue(string attributeReference)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// <summary>
 		/// Analyzes an attribute and returns whether or not it is valid.
 		/// </summary>
 		/// <param name="character">The character to analyze.</param>
@@ -39,7 +49,7 @@ namespace FinalProject.Engines
 				{
 					if (d.v2IsRef)
 					{
-						if (Zeroable(character, character.NumAttributes[d.v2Ref]))
+						if (Zeroable(character, (NumAttribute)character.Attributes[d.v2Ref]))
 						{
 							errors.Add(attribute.Name + " is derived by dividing by zero, or could potentially be derived by dividing by zero.\n" +
 								"Ensure that no attributes depended upon by " + attribute.Name + " can potentially be zero.");
@@ -85,7 +95,7 @@ namespace FinalProject.Engines
 						case Operand.Equals:
 							if (d.v1IsRef)
 							{
-								highestPossible = FindHighestPossible(character, character.NumAttributes[d.v1Ref]);
+								highestPossible = FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]);
 							}
 							else
 							{
@@ -95,8 +105,8 @@ namespace FinalProject.Engines
 							attribute.setMax(highestPossible);
 							break;
 						case Operand.DifferenceOf:
-							decimal x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							decimal y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							decimal x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							decimal y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							highestPossible = x - y;
 							attribute.setMax(highestPossible);
@@ -105,9 +115,10 @@ namespace FinalProject.Engines
 						case Operand.LessOrEqualTo:
 							if (d.v1IsRef)
 							{
-								if (character.NumAttributes[d.v1Ref].getMax() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > highestPossible)
+								NumAttribute n = (NumAttribute)character.Attributes[d.v1Ref];
+								if (n.getMax() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > highestPossible)
 								{
-									highestPossible = FindHighestPossible(character, character.NumAttributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+									highestPossible = FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 								}
 							}
 							else
@@ -119,8 +130,8 @@ namespace FinalProject.Engines
 						case Operand.LogOf:
 							break;
 						case Operand.ModuloOf:
-							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							highestPossible = x % y;
 							attribute.setMax(highestPossible);
@@ -128,22 +139,22 @@ namespace FinalProject.Engines
 						case Operand.PowerOf:
 							break;
 						case Operand.ProductOf:
-							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							highestPossible = x * y;
 							attribute.setMax(highestPossible);
 							break;
 						case Operand.QuotiantOf:
-							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							highestPossible = x / y;
 							attribute.setMax(highestPossible);
 							break;
 						case Operand.SumOf:
-							x = d.v1IsRef ? FindHighestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindHighestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							highestPossible = x + y;
 							attribute.setMax(highestPossible);
@@ -179,7 +190,7 @@ namespace FinalProject.Engines
 						case Operand.Equals:
 							if (d.v1IsRef)
 							{
-								lowestPossible = FindLowestPossible(character, character.NumAttributes[d.v1Ref]);
+								lowestPossible = FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]);
 							}
 							else
 							{
@@ -189,8 +200,8 @@ namespace FinalProject.Engines
 							attribute.setMin(lowestPossible);
 							break;
 						case Operand.DifferenceOf:
-							decimal x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							decimal y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							decimal x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							decimal y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							lowestPossible = x - y;
 							attribute.setMin(lowestPossible);
@@ -199,9 +210,10 @@ namespace FinalProject.Engines
 						case Operand.LessOrEqualTo:
 							if (d.v1IsRef)
 							{
-								if (character.NumAttributes[d.v1Ref].getMin() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > lowestPossible)
+								NumAttribute n = (NumAttribute)character.Attributes[d.v1Ref];
+								if (n.getMin() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > lowestPossible)
 								{
-									lowestPossible = FindLowestPossible(character, character.NumAttributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+									lowestPossible = FindLowestPossible(character, n) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 								}
 							}
 							else
@@ -213,8 +225,8 @@ namespace FinalProject.Engines
 						case Operand.LogOf:
 							break;
 						case Operand.ModuloOf:
-							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							lowestPossible = x % y;
 							attribute.setMin(lowestPossible);
@@ -222,22 +234,22 @@ namespace FinalProject.Engines
 						case Operand.PowerOf:
 							break;
 						case Operand.ProductOf:
-							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							lowestPossible = x * y;
 							attribute.setMin(lowestPossible);
 							break;
 						case Operand.QuotiantOf:
-							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							lowestPossible = x / y;
 							attribute.setMin(lowestPossible);
 							break;
 						case Operand.SumOf:
-							x = d.v1IsRef ? FindLowestPossible(character, character.NumAttributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindLowestPossible(character, character.NumAttributes[d.v2Ref]) : d.Value2;
+							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
+							y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
 
 							lowestPossible = x + y;
 							attribute.setMin(lowestPossible);
@@ -273,6 +285,42 @@ namespace FinalProject.Engines
 
 			attribute.Zeroable = zeroable;
 			return zeroable;
+		}
+
+		/// <summary>
+		/// This method is called upon an attribute to check all of its referenced attributes, and make sure no circular logic is present.
+		/// </summary>
+		/// <param name="character">The character the attribute you are checking is stored in.</param>
+		/// <param name="attribute">The attribute you are checking</param>
+		/// <param name="referenced">All attributes which have already been checked in the line of recursion.</param>
+		/// <returns>A string[] containing all attributes the checked attribute relies on which resulted in circular logic.</returns>
+		private static string[] CheckCircularReferences(Character character, NumAttribute attribute, List<NumAttribute> alreadyChecked = null)
+		{
+			List<string> referenceErrors = new List<string>();
+
+			//Initialize the alreadyChecked list if this is the first instance of this method to be called per recursive line.
+			if (alreadyChecked == null)
+				alreadyChecked = new List<NumAttribute>();
+			//Add the current attribute to the list of checked attributes. That list will be used to make sure an attribute doesn't reference itself, even indirectly.
+			alreadyChecked.Add(attribute);
+
+			foreach (NumDependency d in attribute.Dependancies)
+			{
+				if (d.v1IsRef)
+				{
+					if (alreadyChecked.Contains(character.Attributes[d.v1Ref]))
+					{
+
+					}
+				}
+				if (d.v2IsRef)
+				{
+
+				}
+			}
+
+
+			return referenceErrors.ToArray();
 		}
 	}
 }

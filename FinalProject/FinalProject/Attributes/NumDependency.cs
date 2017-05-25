@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinalProject.Engines;
 namespace FinalProject.Models1
 {
     //This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
@@ -26,10 +27,10 @@ namespace FinalProject.Models1
         {
             get
             {
-                if (v1IsRef)
-                    throw new NotImplementedException();
-                else
-                    return v1NonRef;
+				if (v1IsRef)
+					throw new NotImplementedException();
+				else
+					return v1NonRef;
             }
         }
         public decimal Value2

@@ -52,7 +52,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\Attribute.cs" />
     <Compile Include="Attributes\NumDependency.cs" />
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="Driver.cs" />
