@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using FinalProject.View;
 
 namespace FinalProject
 {
@@ -28,14 +29,6 @@ namespace FinalProject
             this.textbox1.Text = "Input Something.....";
             this.textbox1.KeyPress += new KeyPressEventHandler(this.textbox_KeyPress);
 
-            this.listbox1 = new ListBox();
-            this.listbox1.Location = new Point(10, 80);
-            this.listbox1.Items.Add("Choice 1");
-            this.listbox1.Items.Add("Choice 2");
-            this.listbox1.Items.Add("Choice 3");
-            this.listbox1.Items.Add("Choice 4");
-            this.listbox1.Click += new EventHandler(this.listbox_Click);
-
             this.Controls.Add(button1);
             this.Controls.Add(textbox1);
             this.Controls.Add(listbox1);
@@ -44,6 +37,9 @@ namespace FinalProject
         private void button_Click(object sender, EventArgs e)
         {
             Console.WriteLine("button click");
+            this.Hide();
+            new SavedRule().ShowDialog();
+
         }
 
         private void textbox_KeyPress(object sender, EventArgs e)
@@ -54,18 +50,6 @@ namespace FinalProject
         private void listbox_Click(object sender, EventArgs e)
         {
             Console.WriteLine(this.listbox1.SelectedItem);
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // MainWindow
-            // 
-            this.ClientSize = new System.Drawing.Size(820, 725);
-            this.Name = "MainWindow";
-            this.ResumeLayout(false);
-
         }
     }
 }
