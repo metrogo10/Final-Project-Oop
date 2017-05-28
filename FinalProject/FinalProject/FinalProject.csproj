@@ -71,6 +71,9 @@
     <Compile Include="Models1\Character.cs" />
     <Compile Include="Attributes\CharacterAttribute.cs" />
     <Compile Include="Models1\Archetype.cs" />
+    <Compile Include="View\SavedRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
