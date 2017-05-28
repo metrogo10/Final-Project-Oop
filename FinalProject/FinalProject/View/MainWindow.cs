@@ -10,46 +10,43 @@ using FinalProject.View;
 namespace FinalProject
 {
     public class MainWindow : Form
-    {
-        public Button button1;
-        public TextBox textbox1;
-        public ListBox listbox1;
+    { 
+        private Label titleLabel;
+        private Button newButton;
+        private Button loadButton;
 
         public MainWindow()
         {
             this.ClientSize = new Size(500,500);
+            this.Text = "New - DnD Program";
 
-            this.button1 = new Button();
-            this.button1.Location = new Point(10, 10);
-            this.button1.Text = "Click Me!!";
-            this.button1.Click += new EventHandler(this.button_Click);
+            this.newButton = new Button();
+            this.newButton.Location = new Point(100, 400);
+            this.newButton.Text = " New ";
+            this.newButton.Click += new EventHandler(this.NewButton_Click);
 
-            this.textbox1 = new TextBox();
-            this.textbox1.Location = new Point(10, 45);
-            this.textbox1.Text = "Input Something.....";
-            this.textbox1.KeyPress += new KeyPressEventHandler(this.textbox_KeyPress);
+            this.loadButton = new Button();
+            this.loadButton.Location = new Point(300, 400);
+            this.loadButton.Text = " Load ";
+            this.loadButton.Click += new EventHandler(this.LoadButton_Click);
 
-            this.Controls.Add(button1);
-            this.Controls.Add(textbox1);
-            this.Controls.Add(listbox1);
+            this.Controls.Add(newButton);
+            this.Controls.Add(loadButton);
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void NewButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("button click");
+//            this.Hide();
+//            new SavedRule().ShowDialog();
+
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("button click");
             this.Hide();
             new SavedRule().ShowDialog();
-
-        }
-
-        private void textbox_KeyPress(object sender, EventArgs e)
-        {
-            Console.WriteLine("key press");
-        }
-
-        private void listbox_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(this.listbox1.SelectedItem);
         }
     }
 }
