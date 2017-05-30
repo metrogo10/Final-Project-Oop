@@ -55,6 +55,9 @@
     <Compile Include="Attributes\NumDependency.cs" />
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="View\CharactorStartupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="View\StartUpWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FinalProject.View;
 
 namespace FinalProject
 {
@@ -13,5 +14,6 @@ namespace FinalProject
         {
             Application.Run(new StartUpWindow());
         }
+
     }
 }
