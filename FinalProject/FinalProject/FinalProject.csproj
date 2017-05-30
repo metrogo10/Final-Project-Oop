@@ -55,7 +55,7 @@
     <Compile Include="Attributes\NumDependency.cs" />
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="Driver.cs" />
-    <Compile Include="View\MainWindow.cs">
+    <Compile Include="View\StartUpWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Engines\Courier.cs" />
@@ -71,6 +71,9 @@
     <Compile Include="Models1\Character.cs" />
     <Compile Include="Attributes\CharacterAttribute.cs" />
     <Compile Include="Models1\Archetype.cs" />
+    <Compile Include="View\NewRuleWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="View\SavedRule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +96,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="View\StartUpWindow.resx">
+      <DependentUpon>StartUpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
