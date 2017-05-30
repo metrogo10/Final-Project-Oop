@@ -19,7 +19,7 @@ namespace FinalProject
 
         public StartUpWindow()
         {
-            this.Text = "Start - DnD Program";
+            this.Text = "Proteus - Start Page";
 
             this.ClientSize = new Size(500,500);
             this.MaximumSize = ClientSize;
@@ -27,7 +27,7 @@ namespace FinalProject
 
             this.titleLabel = new Label();
             this.titleLabel.Size = new Size(200, 40);
-            this.titleLabel.Text = "DnD - Program";
+            this.titleLabel.Text = "Proteus - Start";
             this.titleLabel.Font = new Font("Arial", 20);
             this.titleLabel.Location = new Point(150,100);
 
