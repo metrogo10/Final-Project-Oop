@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Speech.Synthesis;
 using System.Windows.Forms;
 using FinalProject.View;
 
@@ -63,6 +64,7 @@ namespace FinalProject
         {
             this.Hide();
             new SavedRule().ShowDialog();
+            
         }
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
