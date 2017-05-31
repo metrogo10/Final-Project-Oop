@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Engines
 {
+	/// <summary>
+	/// FileIO is this program's save/load class, which impliments serialization to effeciently save and load characters.
+	/// </summary>
 	public static class FileIO
 	{
-
+		/// <summary>
+		/// To be called by the MainEngine class to save its character template.
+		/// </summary>
 		public static void SaveRuleset()
 		{
 			IFormatter formatter = new BinaryFormatter();
@@ -20,6 +25,11 @@ namespace FinalProject.Engines
 			stream.Close();
 		}
 
+		/// <summary>
+		/// To be called by MainEngine to load a ruleset.
+		/// </summary>
+		/// <param name="rulesetName">The name of the ruleset the user wishes to load</param>
+		/// <returns>The save ruleset by the given name</returns>
 		public static Character LoadRuleset(string rulesetName)
 		{
 			IFormatter formatter = new BinaryFormatter();
@@ -28,6 +38,10 @@ namespace FinalProject.Engines
 			return template;
 		}
 
+		/// <summary>
+		/// Saves a given character to a file with a name matching the character's.
+		/// </summary>
+		/// <param name="character">The character you wish to save.</param>
 		public static void SaveCharacter(Character character)
 		{
 			if (!Directory.Exists("rulesets\\" + MainEngine.RulesetName))
@@ -44,6 +58,11 @@ namespace FinalProject.Engines
 			stream.Close();
 		}
 
+		/// <summary>
+		/// Loads a character by the given name.
+		/// </summary>
+		/// <param name="characterName">The name of the character you wish to load.</param>
+		/// <returns>The loaded character</returns>
 		public static Character LoadCharacter(string characterName)
 		{
 			IFormatter formatter = new BinaryFormatter();

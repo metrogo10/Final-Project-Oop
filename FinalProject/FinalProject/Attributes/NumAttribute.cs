@@ -9,9 +9,27 @@ namespace FinalProject
 	[Serializable]
     public class NumAttribute : CharacterAttribute
     {
-        private decimal Value;
+        private decimal value;
         private decimal? max = null;
         private decimal? min = null;
+
+		public decimal? Max
+		{
+			get { return max; }
+			set { max = value; }
+		}
+
+		public decimal? Min
+		{
+			get { return min; }
+			set { min = value; }
+		}
+
+		public decimal Value
+		{
+			get { return value; }
+			set { this.value = value; }
+		}
 		public NumAttribute(string name, string group, int priority, List<NumDependency> dependencies) : base(name, group, priority)
 		{
 			Dependancies = dependencies;

@@ -58,6 +58,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Engines\FileIO.cs" />
     <Compile Include="Engines\MainEngine.cs" />
+    <Compile Include="Models1\Items\ItemEffect.cs" />
     <Compile Include="View\CharactorStartupWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,12 +8,13 @@ namespace FinalProject.Models1.Items
 {
     public class UsefulItem : Item, IUsable
     {
-        decimal stat = new decimal();
-        public UsefulItem(string name, string description, int price, double wheight):base(name, description, price, wheight){ }
-        public decimal Use(Character c)
+
+        public UsefulItem(string name, string description) : base(name, description) { }
+        public ItemEffect[] Use(Character c)
         {
-            c.DropItem(this);
-            return this.stat;
+            ItemEffect[] bob = new ItemEffect[this.effects.Count];
+            for(int i = 0; i < bob.Length; i++) { bob[i] = this.effects.ElementAt(i); }
+            return bob;
         }
     }
 }

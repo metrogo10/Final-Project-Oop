@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Models1.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,6 @@ namespace FinalProject.Interfaces
 {
     public interface IUsable
     {
-        decimal Use(Character c);
+        ItemEffect[] Use(Character c);
     }
 }

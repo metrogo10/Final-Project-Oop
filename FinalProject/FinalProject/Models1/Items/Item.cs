@@ -4,25 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Interfaces;
+using FinalProject.Models1.Items;
+
 namespace FinalProject
 {
     public class Item
     {
         protected String Name;
         protected String Description;
-        protected int Price;
-        protected double Wheight;
-        public Item(string name, string description, int price, double wheight)
-        {
-            this.Name = name; this.Price = price; this.Wheight = wheight;this.Description = description;
-        }
-        public double getWheight() { return Wheight; }
-        public void setWheight(double wheight) { this.Wheight = wheight; }
-        public int getPrice() { return Price; }
-        public void setprice(int price) { this.Price = price; }
+        public Dictionary<string, CharacterAttribute> Attributes { get; set; }
+        public List<ItemEffect> effects { get; set; }
+        public void AddStat(CharacterAttribute CD) { Attributes.Add(CD.Name, CD); }
+        public Item(string name, string description) {this.Name = name; this.Description = description;}
         public String getName(){return Name;}
         public void setName(String name){Name = name;}
         public String getDescription(){return Description; }
         public void setDescription(String description){Description = description;}
+        public void AddEffect(ItemEffect IE) {effects.Add(IE); }
     }
 }
