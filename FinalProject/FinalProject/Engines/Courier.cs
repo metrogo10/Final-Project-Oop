@@ -22,9 +22,37 @@ namespace FinalProject.Engines
 		/// </summary>
 		/// <param name="character"></param>
 		/// <param name="attributeReference"></param>
-		public static decimal GetValue(string attributeReference)
+		public static decimal GetValue(string attributeReference, int sourceID)
 		{
-			throw new NotImplementedException();
+			bool source = false;
+			decimal retVal = 0;
+			foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
+			{
+				foreach(KeyValuePair<string, CharacterAttribute> attribute in character.Value.Attributes)
+				{
+					if (attribute.Value.GetType()==typeof(NumAttribute))
+					{
+						foreach(NumDependency d in ((NumAttribute)attribute.Value).Dependancies)
+						{
+							if (d.ID == sourceID)
+							{
+								source = true;
+								break;
+							}
+						}
+						if (source)
+						{
+							break;
+						}
+					}
+				}
+				if (source)
+				{
+					retVal = ((NumAttribute)character.Value.Attributes[attributeReference]).GetValue();
+				}
+			}
+
+			return retVal;
 		}
 
 		/// <summary>

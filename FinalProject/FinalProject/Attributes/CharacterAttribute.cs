@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
+	[Serializable]
     public abstract class CharacterAttribute
 	{
 		public string Name { get; set; }
 		public readonly int ID;
-		public static int count;
+		private static int count;
 
 		public static int Count
 		{

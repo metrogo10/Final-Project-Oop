@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
+	[Serializable]
     public class NumAttribute : CharacterAttribute
     {
         private decimal Value;

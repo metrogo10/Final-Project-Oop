@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
+	[Serializable]
     public class Character
     {
         protected Race R;
