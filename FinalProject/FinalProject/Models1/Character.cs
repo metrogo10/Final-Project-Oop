@@ -11,10 +11,45 @@ namespace FinalProject
     {
         protected Race R;
         protected Archetype C;
-        protected String Name;
-        public Dictionary<string, CharacterAttribute> Attributes { get; set; }
-        protected List<Item> Inventory;
-        protected List<IEquipable> HeldItems;
+        protected String name;
+		public String Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
+
+		public Race Race
+		{
+			get { return R; }
+			set { R = value; }
+		}
+		public Archetype Class
+		{
+			get { return C; }
+			set { C = value; }
+		}
+		public Dictionary<string, CharacterAttribute> attributes = new Dictionary<string, CharacterAttribute>();
+		protected List<Item> inventory = new List<Item>();
+        protected List<IEquipable> heldItems = new List<IEquipable>();
+
+		public Dictionary<string, CharacterAttribute> Attributes
+		{
+			get { return attributes; }
+			set { attributes = value; }
+		}
+
+		public List<Item> Inventory
+		{
+			get { return inventory; }
+			set { inventory = value; }
+		}
+
+		public List<IEquipable> HeldItems
+		{
+			get { return heldItems; }
+			set { heldItems = value; }
+		}
+
         public Race GetRace() { return R; }
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
