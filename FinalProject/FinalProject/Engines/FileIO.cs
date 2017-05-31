@@ -44,6 +44,14 @@ namespace FinalProject.Engines
 		/// <param name="character">The character you wish to save.</param>
 		public static void SaveCharacter(Character character)
 		{
+			if (!Directory.Exists("rulesets\\" + MainEngine.RulesetName))
+			{
+				Directory.CreateDirectory("rulesets\\" + MainEngine.RulesetName);
+			}
+			if (!File.Exists("rulesets\\" + MainEngine.RulesetName + "\\" + character.getName() + ".tbltp"))
+			{
+				FileStream tempStream = File.Create("rulesets\\" + MainEngine.RulesetName + "\\" + character.getName() + ".tbltp");
+			}
 			IFormatter formatter = new BinaryFormatter();
 			Stream stream = new FileStream("rulesets\\" + MainEngine.RulesetName + "\\" + character.getName() + ".tbltp", FileMode.Create, FileAccess.ReadWrite);
 			formatter.Serialize(stream, character);
@@ -58,7 +66,7 @@ namespace FinalProject.Engines
 		public static Character LoadCharacter(string characterName)
 		{
 			IFormatter formatter = new BinaryFormatter();
-			Stream stream = new FileStream("rulesets\\" + MainEngine.RulesetName + "\\" + characterName + ".tbltp", FileMode.Create, FileAccess.ReadWrite);
+			Stream stream = new FileStream("rulesets\\" + MainEngine.RulesetName + "\\" + characterName + ".tbltp", FileMode.Open, FileAccess.ReadWrite);
 			Character template = (Character)formatter.Deserialize(stream);
 			return template;
 		}

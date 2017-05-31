@@ -63,5 +63,10 @@ namespace FinalProject
         public void AddEquipment(IEquipable E) { if (Inventory.Contains((Item)E) ){ Inventory.Remove((Item)E); } HeldItems.Add(E); }
         public List<IEquipable> GetEquipment() { return HeldItems; }
         public void UnEquip(IEquipable E) { HeldItems.Remove(E); Inventory.Add((Item)E); }
-    }
+
+		public override string ToString()
+		{
+			return $"{Name}, {R}, {C}\n";
+		}
+	}
 }
