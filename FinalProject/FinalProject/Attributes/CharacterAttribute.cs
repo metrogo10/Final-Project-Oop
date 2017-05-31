@@ -56,6 +56,5 @@ namespace FinalProject
 			this.Priority = priority;
 			ID = count++;
 		}
-		public abstract string[] Save();
 	}
 }
