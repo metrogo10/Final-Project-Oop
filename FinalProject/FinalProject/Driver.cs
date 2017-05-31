@@ -14,7 +14,7 @@ namespace FinalProject
     {
         public static void Main()
         {
-			Application.Run(new ConsoleView());
+			Application.Run(new StartUpWindow());
         }
 
     }
