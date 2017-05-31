@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FinalProject.View;
-
 namespace FinalProject
 {
     public class Driver
@@ -14,6 +13,5 @@ namespace FinalProject
         {
             Application.Run(new StartUpWindow());
         }
-
     }
 }

@@ -49,7 +49,6 @@ namespace FinalProject
         {
             Group = group;
         }
-
 		public CharacterAttribute(string name, string group, int priority)
 		{
 			Name = name;
@@ -57,7 +56,6 @@ namespace FinalProject
 			this.priority = priority;
 			ID = count++;
 		}
-
 		public abstract string[] Save();
 	}
 }

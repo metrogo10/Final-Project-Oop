@@ -19,14 +19,8 @@ namespace FinalProject
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
         public void SetClass(Archetype C) { this.C = C; }
-        public String getName()
-        {
-            return Name;
-        }
-        public void setName(String name)
-        {
-            Name = name;
-        }
+        public String getName() { return Name;}
+        public void setName(String name){ Name = name; }
         public void AddStat(CharacterAttribute CD) { Attributes.Add(CD.Name, CD); }
         public void AddItem(Item IT) { Inventory.Add(IT); }
         public List<Item> GetItems() { return Inventory; }
