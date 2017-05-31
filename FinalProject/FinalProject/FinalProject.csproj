@@ -55,6 +55,8 @@
     <Compile Include="Attributes\NumDependency.cs" />
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Engines\FileIO.cs" />
+    <Compile Include="Engines\MainEngine.cs" />
     <Compile Include="View\CharactorStartupWindow.cs">
       <SubType>Form</SubType>
     </Compile>
