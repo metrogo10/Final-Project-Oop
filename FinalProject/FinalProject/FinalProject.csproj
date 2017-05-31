@@ -62,6 +62,12 @@
     <Compile Include="View\CharactorStartupWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="View\ConsoleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConsoleView.Designer.cs">
+      <DependentUpon>ConsoleView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StartUpWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsoleView.resx">
+      <DependentUpon>ConsoleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StartUpWindow.resx">
       <DependentUpon>StartUpWindow.cs</DependentUpon>

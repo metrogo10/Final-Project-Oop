@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
+	[Serializable]
     public class Race
     {
         protected String Name;
