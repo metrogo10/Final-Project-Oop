@@ -8,7 +8,7 @@ namespace FinalProject.Models1.Items
 {
     public class DefensiveItem : Item, IEquipable
     {
-        public DefensiveItem(string name, string description, int price, double wheight) : base(name, description, price, wheight) { }
+        public DefensiveItem(string name, string description, int price, double wheight) : base(name, description) { }
         public void Equip(Character c){ c.AddEquipment(this);}
         public void Remove(Character c)
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject.Models1.Items
 {
-    class ItemEffect
+    public class ItemEffect
     {
     }
 }

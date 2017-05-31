@@ -12,7 +12,7 @@ namespace FinalProject.Models1.Items
         protected int dieSides;
         protected int numofDice;
         protected double modifier;
-        public OffensiveItem(string name, string description, int price, double wheight) : base(name, description, price, wheight) { }
+        public OffensiveItem(string name, string description) : base(name, description) { }
         public decimal Attack()
         {
             Random r = new Random();
