@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Interfaces;
 using FinalProject.Models1.Items;
-
 namespace FinalProject
 {
     public class Item
     {
         protected String Name;
         protected String Description;
-        public Dictionary<string, CharacterAttribute> Attributes { get; set; }
+        public Dictionary<string, Attribute> Attributes { get; set; }
         public List<ItemEffect> effects { get; set; }
-        public void AddStat(CharacterAttribute CD) { Attributes.Add(CD.Name, CD); }
+        public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
         public Item(string name, string description) {this.Name = name; this.Description = description;}
         public String getName(){return Name;}
         public void setName(String name){Name = name;}

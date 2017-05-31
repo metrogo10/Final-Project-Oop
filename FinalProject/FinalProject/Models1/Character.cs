@@ -28,11 +28,11 @@ namespace FinalProject
 			get { return C; }
 			set { C = value; }
 		}
-		public Dictionary<string, CharacterAttribute> attributes = new Dictionary<string, CharacterAttribute>();
+		public Dictionary<string, Attribute> attributes = new Dictionary<string, Attribute>();
 		protected List<Item> inventory = new List<Item>();
         protected List<IEquipable> heldItems = new List<IEquipable>();
 
-		public Dictionary<string, CharacterAttribute> Attributes
+		public Dictionary<string, Attribute> Attributes
 		{
 			get { return attributes; }
 			set { attributes = value; }
@@ -56,7 +56,7 @@ namespace FinalProject
         public void SetClass(Archetype C) { this.C = C; }
         public String getName() { return Name;}
         public void setName(String name){ Name = name; }
-        public void AddStat(CharacterAttribute CD) { Attributes.Add(CD.Name, CD); }
+        public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
         public void AddItem(Item IT) { Inventory.Add(IT); }
         public List<Item> GetItems() { return Inventory; }
         public void DropItem(Item IT) { Inventory.Remove(IT); }

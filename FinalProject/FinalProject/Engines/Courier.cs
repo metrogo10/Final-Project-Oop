@@ -27,7 +27,7 @@ namespace FinalProject.Engines
 			decimal retVal = 0;
 			foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
 			{
-				foreach(KeyValuePair<string, CharacterAttribute> attribute in character.Value.Attributes)
+				foreach(KeyValuePair<string, Attribute> attribute in character.Value.Attributes)
 				{
 					if (attribute.Value.GetType()==typeof(NumAttribute))
 					{

@@ -7,24 +7,21 @@ using System.Threading.Tasks;
 namespace FinalProject
 {
 	[Serializable]
-    public class NumAttribute : CharacterAttribute
+    public class NumAttribute : Attribute
     {
         private decimal value;
         private decimal? max = null;
         private decimal? min = null;
-
 		public decimal? Max
 		{
 			get { return max; }
 			set { max = value; }
 		}
-
 		public decimal? Min
 		{
 			get { return min; }
 			set { min = value; }
 		}
-
 		public decimal Value
 		{
 			get { return value; }
@@ -43,7 +40,6 @@ namespace FinalProject
         public void setMax(decimal max){this.max = max;}
         public decimal? getMin(){return min;}
         public void setMin(decimal min){this.min = min;}
-
 		public override string[] Save()
 		{
 			string[] saveData = new string[Dependancies.Count + 1];

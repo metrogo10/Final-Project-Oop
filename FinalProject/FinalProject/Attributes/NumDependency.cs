@@ -12,20 +12,9 @@ namespace FinalProject.Models1
     public class NumDependency : IComparable<NumDependency>
     {
 		private static int count;
-
-		public static int Count
-		{
-			get { return count; }
-		}
-
+		public static int Count{get { return count; }}
 		private readonly int id;
-
-		public int ID
-		{
-			get { return id; }
-		}
-
-
+		public int ID{get { return id; }}
 		//This is telling us what operation we're performing.
 		public Operand type;
         //The priority designates the order of operations. This is used to run dependancy checks in the correct order.
@@ -180,7 +169,6 @@ namespace FinalProject.Models1
         {
             throw new NotImplementedException();
         }
-
 		public string Save()
 		{
 			return (Type + " :: " + priority + " :: " + v1IsRef + " :: " + (v1IsRef ? v1Ref : v1NonRef.ToString()) + " :: " + v2IsRef + " :: " + (v2IsRef ? v2Ref : v2NonRef.ToString()) + " :: ");

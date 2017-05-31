@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 namespace FinalProject
 {
 	[Serializable]
-    public abstract class CharacterAttribute
+    public abstract class Attribute
 	{
 		public string Name { get; set; }
 		public readonly int ID;
 		private static int count;
-
 		public static int Count
 		{
 			get { return count; }
@@ -49,7 +48,7 @@ namespace FinalProject
         {
             Group = group;
         }
-		public CharacterAttribute(string name, string group, int priority)
+		public Attribute(string name, string group, int priority)
 		{
 			Name = name;
 			this.Group = group;

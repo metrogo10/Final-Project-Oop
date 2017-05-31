@@ -76,7 +76,7 @@
     <Compile Include="Attributes\NumAttribute.cs" />
     <Compile Include="Models1\Race.cs" />
     <Compile Include="Models1\Character.cs" />
-    <Compile Include="Attributes\CharacterAttribute.cs" />
+    <Compile Include="Attributes\Attribute.cs" />
     <Compile Include="Models1\Archetype.cs" />
     <Compile Include="View\NewRuleWindow.cs">
       <SubType>Form</SubType>

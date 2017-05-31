@@ -8,7 +8,6 @@ namespace FinalProject.Models1.Items
 {
     public class UsefulItem : Item, IUsable
     {
-
         public UsefulItem(string name, string description) : base(name, description) { }
         public ItemEffect[] Use(Character c)
         {
