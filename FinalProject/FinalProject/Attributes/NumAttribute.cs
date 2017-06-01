@@ -34,9 +34,9 @@ namespace FinalProject
 				this.value = value;
 			}
 		}
-		public NumAttribute(string name, string group, int priority, List<NumDependency> dependencies) : base(name, group, priority)
+		public NumAttribute(string name, string group, int priority, string description, IEnumerable<NumDependency> dependencies) : base(name, group, priority, description)
 		{
-			Dependancies = dependencies;
+			Dependancies = new List<NumDependency>(dependencies.ToArray<NumDependency>());
 			Zeroable = null;
 		}
 		public bool? Zeroable { get; set; }

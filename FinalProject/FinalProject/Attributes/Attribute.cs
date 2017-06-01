@@ -11,6 +11,14 @@ namespace FinalProject
 		public string Name { get; set; }
 		public readonly int ID;
 		private static int count;
+		private string description;
+
+		public string Description
+		{
+			get { return description; }
+			set { description = value; }
+		}
+
 		public static int Count
 		{
 			get { return count; }
@@ -48,12 +56,13 @@ namespace FinalProject
         {
             Group = group;
         }
-		public Attribute(string name, string group, int priority)
+		public Attribute(string name, string group, int priority, string description)
 		{
 			Name = name;
 			this.Group = group;
 			this.Priority = priority;
 			ID = count++;
+			Description = description;
 		}
 	}
 }
