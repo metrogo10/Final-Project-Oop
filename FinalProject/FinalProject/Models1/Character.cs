@@ -1,4 +1,5 @@
 ﻿using FinalProject.Interfaces;
+using FinalProject.Models1.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +61,15 @@ namespace FinalProject
         public void AddItem(Item IT) { Inventory.Add(IT); }
         public List<Item> GetItems() { return Inventory; }
         public void DropItem(Item IT) { Inventory.Remove(IT); }
-        public void AddEquipment(IEquipable E) { if (Inventory.Contains((Item)E) ){ Inventory.Remove((Item)E); } HeldItems.Add(E); }
+        public void AddEquipment(IEquipable E)
+		{ 
+			if (Inventory.Contains((Item)E))
+			{
+				HeldItems.Add(E);
+				Inventory.Remove((Item)E);
+				E.Equip(this);
+			}
+		}
         public List<IEquipable> GetEquipment() { return HeldItems; }
         public void UnEquip(IEquipable E) { HeldItems.Remove(E); Inventory.Add((Item)E); }
 

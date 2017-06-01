@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.Models1;
+using FinalProject.Interfaces;
+using FinalProject.Models1.Items;
+
 namespace FinalProject.Engines
 {
 	/// <summary>
@@ -23,15 +26,16 @@ namespace FinalProject.Engines
 		/// <param name="attributeReference"></param>
 		public static decimal GetValue(string attributeReference, int sourceID)
 		{
-			bool source = false;
 			decimal retVal = 0;
+
+			bool source = false;
 			foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
 			{
-				foreach(KeyValuePair<string, Attribute> attribute in character.Value.Attributes)
+				foreach (KeyValuePair<string, Attribute> attribute in character.Value.Attributes)
 				{
-					if (attribute.Value.GetType()==typeof(NumAttribute))
+					if (attribute.Value.GetType() == typeof(NumAttribute))
 					{
-						foreach(NumDependency d in ((NumAttribute)attribute.Value).Dependancies)
+						foreach (NumDependency d in ((NumAttribute)attribute.Value).Dependancies)
 						{
 							if (d.ID == sourceID)
 							{
@@ -69,9 +73,9 @@ namespace FinalProject.Engines
 			{
 				errors.Add(attribute.Name + " has a higher minimum value than its maximum value, meaning it can never be correct.");
 			}
-			foreach(NumDependency d in attribute.Dependancies)
+			foreach (NumDependency d in attribute.Dependancies)
 			{
-				if ((d.type==Operand.QuotiantOf || d.type==Operand.ModuloOf))
+				if ((d.type == Operand.QuotiantOf || d.type == Operand.ModuloOf))
 				{
 					if (d.v2IsRef)
 					{
@@ -98,17 +102,17 @@ namespace FinalProject.Engines
 		/// <returns>The highest number the attribute is allowed to be based on its dependencies</returns>
 		private static decimal FindHighestPossible(Character character, NumAttribute attribute)
 		{
-		    decimal highestPossible = decimal.MaxValue;
+			decimal highestPossible = decimal.MaxValue;
 			//This method is recursive. To save on memory, if it runs once it'll store the value it returns in the attribute's max value.
 			//If this method is called on an attribute it has already been called on, it will simply return the already stored max value.
 			//In order to ensure we can validate attributes when a player updates them, we should set max and min values to null in any attribute that is edited.
-			if (attribute.getMax()!=null)
+			if (attribute.getMax() != null)
 			{
-				highestPossible = (decimal) attribute.getMax();
+				highestPossible = (decimal)attribute.getMax();
 			}
 			else
 			{
-				foreach(NumDependency d in attribute.Dependancies)
+				foreach (NumDependency d in attribute.Dependancies)
 				{
 					// >Inb4 longest switch statement I've ever written.
 					// >It's super ugly, but super functional.
@@ -278,13 +282,13 @@ namespace FinalProject.Engines
 		private static bool Zeroable(Character character, NumAttribute attribute)
 		{
 			bool zeroable = true;
-			if (attribute.Zeroable!=null)
+			if (attribute.Zeroable != null)
 			{
-				zeroable = (bool) attribute.Zeroable;
+				zeroable = (bool)attribute.Zeroable;
 			}
 			else
 			{
-				if (FindHighestPossible(character, attribute) >=0 && FindLowestPossible(character, attribute) <= 0)
+				if (FindHighestPossible(character, attribute) >= 0 && FindLowestPossible(character, attribute) <= 0)
 				{
 					zeroable = true;
 				}
