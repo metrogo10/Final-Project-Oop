@@ -17,7 +17,6 @@ namespace FinalProject
 			get { return name; }
 			set { name = value; }
 		}
-
 		public Race Race
 		{
 			get { return R; }
@@ -31,25 +30,21 @@ namespace FinalProject
 		public Dictionary<string, Attribute> attributes = new Dictionary<string, Attribute>();
 		protected List<Item> inventory = new List<Item>();
         protected List<IEquipable> heldItems = new List<IEquipable>();
-
 		public Dictionary<string, Attribute> Attributes
 		{
 			get { return attributes; }
 			set { attributes = value; }
 		}
-
 		public List<Item> Inventory
 		{
 			get { return inventory; }
 			set { inventory = value; }
 		}
-
 		public List<IEquipable> HeldItems
 		{
 			get { return heldItems; }
 			set { heldItems = value; }
 		}
-
         public Race GetRace() { return R; }
         public Archetype GetClass() { return C; }
         public void SetRace(Race R) { this.R = R; }
@@ -63,7 +58,6 @@ namespace FinalProject
         public void AddEquipment(IEquipable E) { if (Inventory.Contains((Item)E) ){ Inventory.Remove((Item)E); } HeldItems.Add(E); }
         public List<IEquipable> GetEquipment() { return HeldItems; }
         public void UnEquip(IEquipable E) { HeldItems.Remove(E); Inventory.Add((Item)E); }
-
 		public override string ToString()
 		{
 			return $"{Name}, {R}, {C}\n";
