@@ -12,8 +12,7 @@ namespace FinalProject
     {
         public static void Main()
         {
-            Application.Run(new StartUpWindow());
+			Application.Run(new StartUpWindow());
         }
-
     }
 }

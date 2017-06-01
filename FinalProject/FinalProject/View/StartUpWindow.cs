@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Speech.Synthesis;
 using System.Windows.Forms;
 using FinalProject.View;
 
@@ -19,7 +20,7 @@ namespace FinalProject
 
         public StartUpWindow()
         {
-            this.Text = "Start - DnD Program";
+            this.Text = "Start Page - Proteus";
 
             this.ClientSize = new Size(500,500);
             this.MaximumSize = ClientSize;
@@ -27,7 +28,7 @@ namespace FinalProject
 
             this.titleLabel = new Label();
             this.titleLabel.Size = new Size(200, 40);
-            this.titleLabel.Text = "DnD - Program";
+            this.titleLabel.Text = "Start - Proteus";
             this.titleLabel.Font = new Font("Arial", 20);
             this.titleLabel.Location = new Point(150,100);
 
@@ -63,6 +64,7 @@ namespace FinalProject
         {
             this.Hide();
             new SavedRule().ShowDialog();
+            
         }
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)

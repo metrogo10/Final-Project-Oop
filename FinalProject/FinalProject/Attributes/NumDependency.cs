@@ -8,10 +8,15 @@ namespace FinalProject.Models1
 {
     //This is our Number Dependancy class, of which all NumAttributes will be constructed. This class stores up to two fields which can be either a reference to another NumAttribute, or a regular number.
     //This class has one method, which takes in a decimal, and performs math on it based on the Operand.
+	[Serializable]
     public class NumDependency : IComparable<NumDependency>
     {
-        //This is telling us what operation we're performing.
-        public Operand type;
+		private static int count;
+		public static int Count{get { return count; }}
+		private readonly int id;
+		public int ID{get { return id; }}
+		//This is telling us what operation we're performing.
+		public Operand type;
         //The priority designates the order of operations. This is used to run dependancy checks in the correct order.
         private int priority;
         //Since we're allowing for the user to set dependancies based on numbers, or based on other fields, we need to verify which of those two options they're doing for each value.
@@ -28,7 +33,7 @@ namespace FinalProject.Models1
             get
             {
 				if (v1IsRef)
-					throw new NotImplementedException();
+					return Courier.GetValue(v1Ref, ID);
 				else
 					return v1NonRef;
             }
@@ -37,10 +42,10 @@ namespace FinalProject.Models1
         {
             get
             {
-                if (v2IsRef)
-                    throw new NotImplementedException();
-                else
-                    return v2NonRef;
+				if (v2IsRef)
+					return Courier.GetValue(v2Ref, ID);
+				else
+					return v2NonRef;
             }
         }
         public Operand Type
@@ -92,6 +97,7 @@ namespace FinalProject.Models1
         //Because we're using objects which represent both possabilties of each value, we make our constructor more dynamic.
         public NumDependency(Operand type, bool v1IsRef, bool v2IsRef, object v1, object v2)
         {
+			id = count++;
             //By using object we can cut down on data input, as long as our bools line up we can always cast safely.
             if (v1IsRef)
             {
@@ -163,7 +169,6 @@ namespace FinalProject.Models1
         {
             throw new NotImplementedException();
         }
-
 		public string Save()
 		{
 			return (Type + " :: " + priority + " :: " + v1IsRef + " :: " + (v1IsRef ? v1Ref : v1NonRef.ToString()) + " :: " + v2IsRef + " :: " + (v2IsRef ? v2Ref : v2NonRef.ToString()) + " :: ");

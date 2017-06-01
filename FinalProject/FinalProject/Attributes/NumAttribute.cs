@@ -6,11 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public class NumAttribute : CharacterAttribute
+	[Serializable]
+    public class NumAttribute : Attribute
     {
-        private decimal Value;
+        private decimal value;
         private decimal? max = null;
         private decimal? min = null;
+		public decimal? Max
+		{
+			get { return max; }
+			set { max = value; }
+		}
+		public decimal? Min
+		{
+			get { return min; }
+			set { min = value; }
+		}
+		public decimal Value
+		{
+			get { return value; }
+			set { this.value = value; }
+		}
 		public NumAttribute(string name, string group, int priority, List<NumDependency> dependencies) : base(name, group, priority)
 		{
 			Dependancies = dependencies;
@@ -23,18 +39,6 @@ namespace FinalProject
         public decimal? getMax(){return max; }
         public void setMax(decimal max){this.max = max;}
         public decimal? getMin(){return min;}
-        public void setMin(decimal min){this.min = min;}
-
-		public override string[] Save()
-		{
-			string[] saveData = new string[Dependancies.Count + 1];
-			int n = 0;
-			saveData[n++] = ("NUMATTRIB :: " + Name + " :: " + Value + " :: " + max + " :: " + min + " :: " + Group + " :: " + group + " :: " + priority);
-			foreach (NumDependency d in Dependancies)
-			{
-				saveData[n++] = d.Save();
-			}
-			return saveData;
-		}
+        public void setMin(decimal min) { this.min = min; }
 	}
 }

@@ -44,7 +44,7 @@ namespace FinalProject.View
 
         public NewRuleWindow()
         {
-            this.Text = " New Ruleset - DnD Program";
+            this.Text = "New Ruleset - Proteus";
 
             this.ClientSize = new Size(302,525);
             this.MaximumSize = ClientSize;

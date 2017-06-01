@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
+	[Serializable]
     public class Archetype
     {
         protected String Name;

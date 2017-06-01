@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FinalProject
 {
-    public abstract class CharacterAttribute
+	[Serializable]
+    public abstract class Attribute
 	{
 		public string Name { get; set; }
 		public readonly int ID;
-		public static int count;
-
+		private static int count;
 		public static int Count
 		{
 			get { return count; }
@@ -21,24 +21,24 @@ namespace FinalProject
 				count = value;
 			}
 		}
-		protected string Group;
-        protected int group;
-        protected int priority;
+		public string Group { get; set; }
+        public int GroupNum { get; set; }
+        public int Priority { get; set; }
         public int getGroup()
         {
-            return group;
+            return GroupNum;
         }
         public void setGroup(int group)
         {
-            this.group = group;
+            this.GroupNum = group;
         }
         public int getPriority()
         {
-            return priority;
+            return Priority;
         }
         public void setPriority(int priority)
         {
-            this.priority = priority;
+            this.Priority = priority;
         }
         public String GetGroup()
         {
@@ -48,15 +48,12 @@ namespace FinalProject
         {
             Group = group;
         }
-
-		public CharacterAttribute(string name, string group, int priority)
+		public Attribute(string name, string group, int priority)
 		{
 			Name = name;
 			this.Group = group;
-			this.priority = priority;
+			this.Priority = priority;
 			ID = count++;
 		}
-
-		public abstract string[] Save();
 	}
 }
