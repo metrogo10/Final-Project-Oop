@@ -25,9 +25,7 @@ namespace Proteus.Engines
 		{
 			bool source = false;
 			decimal retVal = 0;
-			foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
-			{
-				foreach(KeyValuePair<string, CustomAttribute> CustomAttribute in character.Value.Attributes)
+				foreach(KeyValuePair<string, CustomAttribute> CustomAttribute in MainEngine.Character.Attributes)
 				{
 					if (CustomAttribute.Value.GetType()==typeof(NumAttribute))
 					{
@@ -47,9 +45,8 @@ namespace Proteus.Engines
 				}
 				if (source)
 				{
-					retVal = ((NumAttribute)character.Value.Attributes[attributeReference]).GetValue();
+					retVal = ((NumAttribute)MainEngine.Character.Attributes[attributeReference]).GetValue();
 				}
-			}
 
 			return retVal;
 		}

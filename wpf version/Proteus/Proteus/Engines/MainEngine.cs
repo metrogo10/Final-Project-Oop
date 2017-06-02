@@ -10,6 +10,14 @@ namespace Proteus.Engines
 		private static Character template;
 		private static string rulesetName;
 		private static Character currentCharacter;
+		private static Dictionary<string, Item> items;
+
+		public static Dictionary<string, Item> Items
+		{
+			get { return items; }
+			set { items = value; }
+		}
+
 
 		public static Character Character
 		{

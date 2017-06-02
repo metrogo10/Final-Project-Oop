@@ -42,7 +42,8 @@ namespace Proteus.View
         private void LoadItemTemplate(object sender, RoutedEventArgs e)
         {
             OpenFileDialog files = new OpenFileDialog();
-            files.ShowDialog();
+			files.Filter = "Proteus Item Files (*.pitem)|*.pitem";
+			if (files.ShowDialog() == DialogResult);
         }
         private void CreateItem(object sender, RoutedEventArgs e)
         {
