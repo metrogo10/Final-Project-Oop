@@ -58,6 +58,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Engines\FileIO.cs" />
     <Compile Include="Engines\MainEngine.cs" />
+    <Compile Include="Engines\RandomGenerator.cs" />
     <Compile Include="Models1\Items\ItemEffect.cs" />
     <Compile Include="View\CharactorStartupWindow.cs">
       <SubType>Form</SubType>
@@ -114,5 +115,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

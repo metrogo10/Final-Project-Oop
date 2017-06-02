@@ -8,6 +8,6 @@ namespace FinalProject.Interfaces
 {
     public interface IUsable
     {
-        ItemEffect[] Use(Character c);
+        void Use(Character c);
     }
 }

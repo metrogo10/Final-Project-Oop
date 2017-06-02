@@ -25,11 +25,18 @@ namespace FinalProject
 		public decimal Value
 		{
 			get { return value; }
-			set { this.value = value; }
+			set
+			{
+				foreach(NumDependency d in this.Dependancies)
+				{
+					value = d.CheckDependancy(value);
+				}
+				this.value = value;
+			}
 		}
-		public NumAttribute(string name, string group, int priority, List<NumDependency> dependencies) : base(name, group, priority)
+		public NumAttribute(string name, string group, int priority, string description, IEnumerable<NumDependency> dependencies) : base(name, group, priority, description)
 		{
-			Dependancies = dependencies;
+			Dependancies = new List<NumDependency>(dependencies.ToArray<NumDependency>());
 			Zeroable = null;
 		}
 		public bool? Zeroable { get; set; }

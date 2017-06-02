@@ -9,11 +9,19 @@ namespace FinalProject
 {
     public class Item
     {
-        protected String Name;
+		protected String Name;
         protected String Description;
-        public Dictionary<string, Attribute> Attributes { get; set; }
-        public List<ItemEffect> effects { get; set; }
+		private string itemType;
+
+		public string ItemType
+		{
+			get { return itemType; }
+			set { itemType = value; }
+		}
+
+		public Dictionary<string, Attribute> Attributes { get; set; }
         public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
+        public List<ItemEffect> effects { get; set; }
         public Item(string name, string description) {this.Name = name; this.Description = description;}
         public String getName(){return Name;}
         public void setName(String name){Name = name;}
