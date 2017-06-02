@@ -18,25 +18,26 @@ using System.Windows.Shapes;
 using Proteus.Engines;
 namespace Proteus
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-        private void NewGame(object sender, RoutedEventArgs e)
-        {
-            NewGame secondWindow = new NewGame();
-            secondWindow.Show();
-        }
-        private void LoadGame(object sender, RoutedEventArgs e)
-        {
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.ShowDialog();
-			MainEngine.Template = FileIO.LoadCharacter(openFileDialog.FileName);
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window
+	{
+		public MainWindow()
+		{
+			InitializeComponent();
 		}
-    }
+		private void NewGame(object sender, RoutedEventArgs e)
+		{
+			NewGame secondWindow = new NewGame();
+			secondWindow.Show();
+		}
+		private void LoadGame(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "Character Templates (*.ptemp)|*.ptemp";
+			if (openFileDialog.ShowDialog() == DialogResult)
+				MainEngine.Template = FileIO.LoadCharacter(openFileDialog.FileName);
+		}
+	}
 }
