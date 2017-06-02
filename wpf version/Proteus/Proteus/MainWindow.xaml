@@ -13,14 +13,6 @@
                 Content="Create New Ruleset" Click="NewGame"  />
         <Button  Height="50"  Margin="50 0 50 50" HorizontalContentAlignment="Center" FontSize="24" Click="LoadGame" >
             Load Existing Ruleset 
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="First file"/>
-                    <MenuItem Header="Second file"/>
-                    <MenuItem Header="Third file"/>
-                    <MenuItem Header="Fourth file"/>
-                </ContextMenu>
-            </Button.ContextMenu>
         </Button>
     </StackPanel>
 </Window>
