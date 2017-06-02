@@ -1,6 +1,8 @@
-﻿using Proteus.View;
+﻿using Microsoft.Win32;
+using Proteus.View;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Proteus.Engines;
 namespace Proteus
 {
     /// <summary>
@@ -31,7 +34,9 @@ namespace Proteus
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
-
-        }
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.ShowDialog();
+			MainEngine.Template = FileIO.LoadCharacter(openFileDialog.FileName);
+		}
     }
 }
