@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Proteus.Models.Items
 {
+	[Serializable]
     public class UsefulItem : Item, IUsable
     {
         public UsefulItem(string name, string description) : base(name, description) { }

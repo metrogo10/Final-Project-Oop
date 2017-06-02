@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Proteus
 {
+	[Serializable]
     public class Item
     {
         protected String Name;

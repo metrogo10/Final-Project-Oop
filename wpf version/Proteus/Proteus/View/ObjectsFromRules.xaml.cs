@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Proteus.Engines;
 namespace Proteus.View
 {
     /// <summary>
@@ -29,9 +30,11 @@ namespace Proteus.View
         }
         private void LoadCharacter(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog files = new OpenFileDialog();
-            files.ShowDialog();
-        }
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "Character Templates (*.ptemp)|*.ptemp";
+			if (openFileDialog.ShowDialog() == DialogResult)
+				MainEngine.Character = FileIO.LoadCharacter(openFileDialog.FileName);
+		}
         private void CreateItemTemplate(object sender, RoutedEventArgs e)
         {
 

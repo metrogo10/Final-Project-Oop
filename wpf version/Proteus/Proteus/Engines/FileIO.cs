@@ -16,11 +16,11 @@ namespace Proteus.Engines
 		/// <summary>
 		/// To be called by the MainEngine class to save its character template.
 		/// </summary>
-		public static void SaveCharacter(string filePath)
+		public static void SaveCharacter(string filePath, Character character)
 		{
 			IFormatter formatter = new BinaryFormatter();
 			Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
-			formatter.Serialize(stream, MainEngine.Template);
+			formatter.Serialize(stream, character);
 			stream.Close();
 		}
 
@@ -34,7 +34,25 @@ namespace Proteus.Engines
 			IFormatter formatter = new BinaryFormatter();
 			Stream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 			Character template = (Character) formatter.Deserialize(stream);
+			stream.Close();
 			return template;
+		}
+
+		public static Item LoadItem(string filepath)
+		{
+			IFormatter formatter = new BinaryFormatter();
+			Stream stream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+			Item item = (Item)formatter.Deserialize(stream);
+			stream.Close();
+			return item;
+		}
+		
+		public static void SaveItem(string filePath, Item item)
+		{
+			IFormatter formatter = new BinaryFormatter();
+			Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
+			formatter.Serialize(stream, item);
+			stream.Close();
 		}
 	}
 }

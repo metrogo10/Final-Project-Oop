@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Proteus.Attributes
 {
+	[Serializable]
     public enum Operand
     {
         Equals,

@@ -9,13 +9,14 @@ namespace Proteus.Engines
 	{
 		private static Character template;
 		private static string rulesetName;
-		private static Dictionary<string, Character> characters = new Dictionary<string, Character>();
+		private static Character currentCharacter;
 
-		public static Dictionary<string, Character> Characters
+		public static Character Character
 		{
-			get { return characters; }
-			set { characters = value; }
+			get { return currentCharacter; }
+			set { currentCharacter = value; }
 		}
+
 
 		public static string RulesetName
 		{

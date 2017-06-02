@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Proteus.Models.Items
 {
+	[Serializable]
         public enum EffectType
         {
             ADD,
