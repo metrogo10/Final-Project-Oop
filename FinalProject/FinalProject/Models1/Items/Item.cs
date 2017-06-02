@@ -18,7 +18,6 @@ namespace FinalProject
 			get { return itemType; }
 			set { itemType = value; }
 		}
-
 		public Dictionary<string, Attribute> Attributes { get; set; }
         public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
         public List<ItemEffect> effects { get; set; }
