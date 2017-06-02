@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proteus.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,8 @@ namespace Proteus
         }
         private void NewGame(object sender, RoutedEventArgs e)
         {
-           
+            NewGame secondWindow = new NewGame();
+            secondWindow.Show();
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
