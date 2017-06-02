@@ -11,7 +11,15 @@ namespace FinalProject
     {
 		protected String Name;
         protected String Description;
-        public Dictionary<string, Attribute> Attributes { get; set; }
+		private string itemType;
+
+		public string ItemType
+		{
+			get { return itemType; }
+			set { itemType = value; }
+		}
+
+		public Dictionary<string, Attribute> Attributes { get; set; }
         public List<ItemEffect> Effects { get; set; }
         public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
         public Item(string name, string description) {this.Name = name; this.Description = description;}
