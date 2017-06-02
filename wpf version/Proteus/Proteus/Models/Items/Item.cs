@@ -1,4 +1,5 @@
-﻿using Proteus.Models.Items;
+﻿using Proteus.Attributes;
+using Proteus.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,7 @@ namespace Proteus
     {
         protected String Name;
         protected String Description;
-        public Dictionary<string, Attribute> Attributes { get; set; }
         public List<ItemEffect> effects { get; set; }
-        public void AddStat(Attribute CD) { Attributes.Add(CD.Name, CD); }
         public Item(string name, string description) {this.Name = name; this.Description = description;}
         public String getName(){return Name;}
         public void setName(String name){Name = name;}

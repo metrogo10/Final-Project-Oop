@@ -23,7 +23,11 @@ namespace Proteus
         {
             InitializeComponent();
         }
-        private void firstName_Click(object sender, RoutedEventArgs e)
+        private void NewGame(object sender, RoutedEventArgs e)
+        {
+           
+        }
+        private void LoadGame(object sender, RoutedEventArgs e)
         {
 
         }
