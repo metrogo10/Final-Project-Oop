@@ -26,9 +26,6 @@ namespace Proteus
         }
         private void NewGame(object sender, RoutedEventArgs e)
         {
-            NewGame secondWindow = new NewGame();
-            secondWindow.Show();
-            this.Owner.Content.Equals(secondWindow.Content);
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
