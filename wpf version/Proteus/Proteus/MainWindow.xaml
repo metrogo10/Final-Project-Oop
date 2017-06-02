@@ -12,13 +12,10 @@
         <Button Height="50"  Margin="50 50" HorizontalContentAlignment="Center" FontSize="24"
                 Content="Create New Ruleset" Click="NewGame"  />
         <Button  Height="50"  Margin="50 0 50 50" HorizontalContentAlignment="Center" FontSize="24" Click="LoadGame" >
-            Load Existing Ruleset
+            Load Existing Ruleset \/
             <Button.ContextMenu>
                 <ContextMenu >
-                    <MenuItem Foreground="Snow" Header="First file"/>
-                    <MenuItem Foreground="Snow" Header="Second file"/>
-                    <MenuItem Foreground="Snow" Header="Third file"/>
-                    <MenuItem Foreground="Snow" Header="Fourth file"/>
+                 
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
