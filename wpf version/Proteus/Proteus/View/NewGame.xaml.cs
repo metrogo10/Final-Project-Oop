@@ -22,6 +22,16 @@ namespace Proteus.View
         public NewGame()
         {
             InitializeComponent();
+
+            TabItem item = new TabItem();
+            item.Header = "Demo Tab";
+            item.Content = "Hello";
+            AttributeTabControl.Items.Add(item);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

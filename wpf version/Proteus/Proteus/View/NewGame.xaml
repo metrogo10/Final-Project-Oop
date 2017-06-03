@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proteus.View"
         mc:Ignorable="d"
-        Title="NewGame" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="New Ruleset - Proteus" Height="500" Width="300">
+   
+    <!-- 
+        Things to look up:
+        1) Layout Elements (ex. StackPanel, WrapPanel, DockPanel, Grid, UniformGrid, etc)
+        2) User Controls
+        3) Layout vs Content Elements
+        4) If you have time, Data Binding (this one is awesome, but its hard for a lot of people at first)
+    
+    -->
+    <DockPanel>
+        <Menu Margin="0" Width="300" Height="20"
+              DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New..." />
+                <Separator />
+                <MenuItem Header="_Open..." />
+                <Separator />
+                <MenuItem Header="_Save" />
+                <MenuItem Header="_Save As..." />
+                <Separator />
+                <MenuItem Header="_Exit"  Click="Exit_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add Attribute" />
+            </MenuItem>
+
+        </Menu>
+        <TabControl Margin="0" Width="290" 
+                    x:Name="AttributeTabControl">
+            <TabItem Header="Attribute" Height="20">
+                <StackPanel>
+                    <Label Content=" - Attribute - " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,10,0,0" RenderTransformOrigin="-0.091,0.172" Width="100" FontSize="14" HorizontalContentAlignment="Center"/>
+                    <Label Content=" - Attribute - " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,10,0,0" RenderTransformOrigin="-0.091,0.172" Width="100" FontSize="14" HorizontalContentAlignment="Center"/>
+                    <Label Content=" - Attribute - " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,10,0,0" RenderTransformOrigin="-0.091,0.172" Width="100" FontSize="14" HorizontalContentAlignment="Center"/>
+                    <Label Content=" - Attribute - " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,10,0,0" RenderTransformOrigin="-0.091,0.172" Width="100" FontSize="14" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                
+            </TabItem>
+
+
+        </TabControl>
+
+
+    </DockPanel>
 </Window>
+
+
+
