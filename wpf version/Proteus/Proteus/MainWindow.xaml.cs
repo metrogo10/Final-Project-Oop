@@ -26,6 +26,8 @@ namespace Proteus
         }
         private void NewGame(object sender, RoutedEventArgs e)
         {
+            ObjectsFromRules O = new ObjectsFromRules();
+            this.u
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {

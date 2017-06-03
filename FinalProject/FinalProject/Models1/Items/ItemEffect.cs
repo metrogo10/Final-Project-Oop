@@ -12,7 +12,6 @@ namespace FinalProject.Models1.Items
 		MULTIPLY,
 		DIVIDE
 	}
-
 	/// <summary>
 	/// ItemEffect is a class which all items will contain, that tells the character holding or equipping the item what that item does to their attributes.
 	/// </summary>
