@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,28 @@ namespace Proteus.View
         public NewGame()
         {
             InitializeComponent();
+            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
-        private void Exit_Click(object sender, RoutedEventArgs e)
+
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            i = 1;
+            j = 1;
             this.Close();
         }
+
+//        private void Exit_Click(object sender, RoutedEventArgs e)
+//        {
+//            i = 1;
+//            j = 1;
+//            this.Close();
+//        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            // Perform tasks at application exit
+        }
+
         private void AddDependency_Click(object sender, RoutedEventArgs e)
         {           
             Label l = new Label();
