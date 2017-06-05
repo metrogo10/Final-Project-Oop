@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace Proteus.View
 {
     /// <summary>
@@ -25,12 +24,10 @@ namespace Proteus.View
         {
             InitializeComponent();
         }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
         private void AddDependency_Click(object sender, RoutedEventArgs e)
         {           
             Label l = new Label();
@@ -39,16 +36,13 @@ namespace Proteus.View
             i++;
             ListPanel.Children.Add(l);
         }
-
         private void AddAttributeButton_Click(object sender, RoutedEventArgs e)
         {
             UserControl u1 = new Tab_UserControl.UserControl1();
-
             j++;
             TabItem t1 = new TabItem();
             t1.Content = u1;
             t1.Header = $"Attribute {j}";
-
             AttributeTabControl.Items.Add(t1);        
         }
     }
