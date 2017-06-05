@@ -135,5 +135,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tab_UserControl\Tab_UserControl.csproj">
+      <Project>{2c5d323f-45af-4ce9-a696-8cf833cfded7}</Project>
+      <Name>Tab_UserControl</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

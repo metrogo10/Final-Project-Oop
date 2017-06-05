@@ -10,46 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Proteus.View
+namespace Tab_UserControl
 {
     /// <summary>
-    /// Interaction logic for NewGame.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class NewGame : Window
+    public partial class UserControl1 : UserControl
     {
         private int i = 1;
-        private static int j = 1;
-        public NewGame()
+
+        public UserControl1()
         {
             InitializeComponent();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void AddDependency_Click(object sender, RoutedEventArgs e)
-        {           
+        {
             Label l = new Label();
             l.Width = 250;
             l.Content = $"{i}. {dependencyTextBox1.Text} - {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox2.Text}";
             i++;
             ListPanel.Children.Add(l);
-        }
-
-        private void AddAttributeButton_Click(object sender, RoutedEventArgs e)
-        {
-            UserControl u1 = new Tab_UserControl.UserControl1();
-
-            j++;
-            TabItem t1 = new TabItem();
-            t1.Content = u1;
-            t1.Header = $"Attribute {j}";
-
-            AttributeTabControl.Items.Add(t1);        
         }
     }
 }

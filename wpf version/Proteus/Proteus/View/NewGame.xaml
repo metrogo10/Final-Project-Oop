@@ -3,10 +3,103 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Proteus.View"
+        xmlns:local="clr-assembly=Tab_UserControl..NETFramework,Version=v4.5.2"
         mc:Ignorable="d"
-        Title="NewGame" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="New Ruleset - Proteus" Height="460" Width="300">
+
+    <!-- 
+        Things to look up:
+        1) Layout Elements (ex. StackPanel, WrapPanel, DockPanel, Grid, UniformGrid, etc)
+        2) User Controls
+        3) Layout vs Content Elements
+        4) If you have time, Data Binding (this one is awesome, but its hard for a lot of people at first)
+    
+    -->
+    <StackPanel>
+        <Menu Margin="0" Width="300" Height="20"
+              DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New..." />
+                <Separator />
+                <MenuItem Header="_Open..." />
+                <Separator />
+                <MenuItem Header="_Save" />
+                <MenuItem Header="_Save As..." />
+                <Separator />
+                <MenuItem Header="_Exit"  Click="Exit_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add Attribute" Click="AddAttributeButton_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
+            <TabControl Margin="0" Width="290" 
+                    x:Name="AttributeTabControl" Height="410"
+                    >
+                <TabItem Header="Attribute" Height="20">
+                    <StackPanel>
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="1" HorizontalAlignment="Center" Margin="46,-13,80,0" Width="92" FontSize="14" Content=" - Attribute -" />
+                            <Label Grid.Row="1">Name</Label>
+                            <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" />
+                            <Label Grid.Row="2">Type</Label>
+                            <ComboBox Grid.Row="2" Grid.Column="2" Margin="0,0,0,10" />
+                        </Grid>
+
+                        <GroupBox Height="110">
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="1" HorizontalAlignment="Center" Margin="75,-10,64,0" Width="109" FontSize="14" Content=" - Dependency - " />
+                                <TextBox x:Name="dependencyTextBox1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,180,0"/>
+                                <TextBox x:Name="dependencyTextBox2" Grid.Row="1" Grid.Column="1" Margin="180,0,10,0" />
+                                <ComboBox x:Name="dependencyComboBox" Grid.Row="1" Grid.Column="1" Margin="75,0" Height="22" VerticalAlignment="Top" >
+                                    <ComboBoxItem>+</ComboBoxItem>
+                                    <ComboBoxItem>-</ComboBoxItem>
+                                    <ComboBoxItem>*</ComboBoxItem>
+                                    <ComboBoxItem>/</ComboBoxItem>
+                                    <ComboBoxItem>*</ComboBoxItem>
+                                </ComboBox>
+                                <Button Grid.Row="2" Grid.Column="1" Margin="0,10" Click="AddDependency_Click">Add Dependency</Button>
+                            </Grid>
+                        </GroupBox>
+
+                        <StackPanel Height="170">
+                            <Label HorizontalContentAlignment="Center" FontSize="16">- Dependency List -</Label>
+                            <GroupBox Height ="110" RenderTransformOrigin="0.5,0.5">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <StackPanel x:Name="ListPanel">
+
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </GroupBox>
+                            <Label HorizontalAlignment="Center">Status :</Label>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
+
+    </StackPanel>
 </Window>
+
+
+
