@@ -26,7 +26,9 @@ namespace Proteus
         }
         private void NewGame(object sender, RoutedEventArgs e)
         {
-            ObjectsFromRules O = new ObjectsFromRules();
+            NewGame N = new NewGame();
+            N.Show();
+            this.Hide();
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
