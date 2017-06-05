@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Proteus.View"
         mc:Ignorable="d"
         Title="ObjectsFromRules" Height="350" Width="500">
+    <UserControl x:Name="ObjectFromRules">
     <Grid Background="Gray" >
         <Label x:Name="L1" Height="50" Background="LightGray" HorizontalContentAlignment="Center" VerticalAlignment="Top"
          FontSize="24" Content="What Do You Want To Do?"  />
@@ -22,4 +23,5 @@
         <Button Height="50"  Margin="0,245,0,27.5" HorizontalContentAlignment="Center"  FontSize="24" HorizontalAlignment="Right"
                 Content="Load Item" Click="LoadItem" Width="225"  />
     </Grid>
+    </UserControl>
 </Window>

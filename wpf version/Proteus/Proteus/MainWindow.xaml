@@ -6,13 +6,15 @@
         mc:Ignorable="d"
         xmlns:local="clr-namespace:Proteus.View"
    Title="MainWindow" Height="350" Width="500">
-    <StackPanel Background="Gray">
-        <Label x:Name="L1" Height="50" Background="LightGray" HorizontalContentAlignment="Center"
+    <UserControl x:Name="StartScreen">
+        <StackPanel Background="Gray">
+            <Label x:Name="L1" Height="50" Background="LightGray" HorizontalContentAlignment="Center"
          FontSize="24" Content="Welcome to Proteus RPG Builder"  />
-        <Button Height="50"  Margin="50 50" HorizontalContentAlignment="Center" FontSize="24"
+            <Button Height="50"  Margin="50 50" HorizontalContentAlignment="Center" FontSize="24"
                 Content="Create New Ruleset" Click="NewGame"  />
-        <Button  Height="50"  Margin="50 0 50 50" HorizontalContentAlignment="Center" FontSize="24" Click="LoadGame" >
-            Load Existing Ruleset 
-        </Button>
-    </StackPanel>
+            <Button  Height="50"  Margin="50 0 50 50" HorizontalContentAlignment="Center" FontSize="24" Click="LoadGame" >
+                Load Existing Ruleset
+            </Button>
+        </StackPanel>
+    </UserControl>
 </Window>
