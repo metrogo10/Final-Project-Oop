@@ -22,6 +22,7 @@ namespace Proteus
 {
     public partial class MainWindow : Window
     {
+        NewGame N = new NewGame();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +36,8 @@ namespace Proteus
 
         private void NewGame(object sender, RoutedEventArgs e)
         {
-            NewGame N = new NewGame();
-            N.Show();
-            this.Hide();
+            if (N.IsVisible) { }
+            else { N = new NewGame(); N.Show(); }
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
