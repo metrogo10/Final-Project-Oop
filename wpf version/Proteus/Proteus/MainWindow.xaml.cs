@@ -17,7 +17,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Proteus.Engines;
-
 namespace Proteus
 {
     public partial class MainWindow : Window
@@ -28,12 +27,10 @@ namespace Proteus
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
-
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void NewGame(object sender, RoutedEventArgs e)
         {
             if (N.IsVisible) { }
@@ -46,7 +43,5 @@ namespace Proteus
 			if (saver.ShowDialog() == DialogResult)
 				MainEngine.Template = FileIO.LoadCharacter(saver.FileName);
         }
-
-        
     }
 }
