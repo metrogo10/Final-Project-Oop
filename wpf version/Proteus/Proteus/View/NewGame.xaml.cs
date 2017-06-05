@@ -26,7 +26,9 @@ namespace Proteus.View
         public NewGame()
         {
             InitializeComponent();
-            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
+			dependencyTextBox1.Visibility = Visibility.Hidden;
+			dependencyTextBox2.Visibility = Visibility.Hidden;
+			Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -65,5 +67,24 @@ namespace Proteus.View
             t1.Header = $"Attribute {j}";
             AttributeTabControl.Items.Add(t1);        
         }
-    }
+
+		private void DependencySelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			switch(((ComboBox)sender).SelectedIndex)
+			{
+				case 0:
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+			}
+		}
+	}
 }
