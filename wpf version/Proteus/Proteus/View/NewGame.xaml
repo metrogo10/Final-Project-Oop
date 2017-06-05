@@ -69,9 +69,9 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Label Grid.Column="1" HorizontalAlignment="Center" Margin="75,-10,64,0" Width="109" FontSize="14" Content=" - Dependency - " />
-                                <TextBox x:Name="dependencyTextBox1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,180,0"/>
+                                <TextBox x:Name="dependencyTextBox1" Grid.Row="1" Grid.ColumnSpan="2" Margin="106,0,77,45.667" Grid.RowSpan="2" Height="18" VerticalAlignment="Bottom"/>
                                 <TextBox x:Name="dependencyTextBox2" Grid.Row="1" Grid.Column="1" Margin="180,0,10,0" />
-                                <ComboBox x:Name="dependencyComboBox" Grid.Row="1" Grid.Column="1" Margin="75,0" Height="22" VerticalAlignment="Top" >
+                                <ComboBox x:Name="dependencyComboBox" Grid.Row="1" Grid.Column="1" Margin="10,0.333,159,41.667" Grid.RowSpan="2" >
                                     <ComboBoxItem>+</ComboBoxItem>
                                     <ComboBoxItem>-</ComboBoxItem>
                                     <ComboBoxItem>*</ComboBoxItem>
