@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proteus.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Proteus.View
 
         public NewGame()
         {
+			dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
