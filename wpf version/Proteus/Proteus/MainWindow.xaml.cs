@@ -30,7 +30,10 @@ namespace Proteus
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
-           
+			OpenFileDialog saver = new OpenFileDialog();
+			saver.Filter = "Proteus Rules Templates (*.ptemp)|*.ptemp";
+			if (saver.ShowDialog() == DialogResult)
+				MainEngine.Template = FileIO.LoadCharacter(saver.FileName);
         }
     }
 }
