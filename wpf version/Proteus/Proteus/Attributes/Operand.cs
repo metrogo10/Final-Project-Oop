@@ -16,9 +16,6 @@ namespace Proteus.Attributes
         ProductOf,
         SumOf,
         DifferenceOf,
-        QuotiantOf,
-        ModuloOf,
-        PowerOf,
-        LogOf
+        QuotiantOf
     }
 }

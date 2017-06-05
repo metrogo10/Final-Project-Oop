@@ -68,7 +68,7 @@ namespace Proteus.Engines
 			}
 			foreach(NumDependency d in attribute.Dependancies)
 			{
-				if ((d.type==Operand.QuotiantOf || d.type==Operand.ModuloOf))
+				if (d.type==Operand.QuotiantOf)
 				{
 					if (d.v2IsRef)
 					{
@@ -146,16 +146,6 @@ namespace Proteus.Engines
 									highestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 							}
 							break;
-						case Operand.LogOf:
-							break;
-						case Operand.ModuloOf:
-							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
-							highestPossible = x % y;
-							attribute.setMax(highestPossible);
-							break;
-						case Operand.PowerOf:
-							break;
 						case Operand.ProductOf:
 							x = d.v1IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
 							y = d.v2IsRef ? FindHighestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
@@ -231,16 +221,6 @@ namespace Proteus.Engines
 								if (d.Value1 > lowestPossible)
 									lowestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 							}
-							break;
-						case Operand.LogOf:
-							break;
-						case Operand.ModuloOf:
-							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;
-							y = d.v2IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v2Ref]) : d.Value2;
-							lowestPossible = x % y;
-							attribute.setMin(lowestPossible);
-							break;
-						case Operand.PowerOf:
 							break;
 						case Operand.ProductOf:
 							x = d.v1IsRef ? FindLowestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) : d.Value1;

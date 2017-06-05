@@ -67,15 +67,6 @@ namespace Proteus.Attributes
                 case Operand.Equals:
                     priority = 1;
                     break;
-                case Operand.LogOf:
-                    priority = 2;
-                    break;
-                case Operand.ModuloOf:
-                    priority = 4;
-                    break;
-                case Operand.PowerOf:
-                    priority = 2;
-                    break;
                 case Operand.ProductOf:
                     priority = 3;
                     break;
@@ -142,15 +133,6 @@ namespace Proteus.Attributes
                 case Operand.LessThan:
                     if (value >= Value1)
                         value = Value1 - 1;
-                    break;
-                case Operand.LogOf:
-                    throw new NotImplementedException(); //We need to write our own .Pow() function if we wish to continue using decimal as our value type.
-                    break;
-                case Operand.ModuloOf:
-                    value = Value1 % Value2;
-                    break;
-                case Operand.PowerOf:
-                    throw new NotImplementedException(); //See LogOf notes above.
                     break;
                 case Operand.ProductOf:
                     value = Value1 * Value2;

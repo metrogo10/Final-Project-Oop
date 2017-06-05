@@ -26,6 +26,7 @@ namespace Proteus.View
         public NewGame()
         {
             InitializeComponent();
+			dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
 			dependencyTextBox1.Visibility = Visibility.Hidden;
 			dependencyTextBox2.Visibility = Visibility.Hidden;
 			Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
@@ -70,20 +71,15 @@ namespace Proteus.View
 
 		private void DependencySelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			switch(((ComboBox)sender).SelectedIndex)
+			if (((ComboBox)sender).SelectedIndex >=0 && ((ComboBox)sender).SelectedIndex <=4)
 			{
-				case 0:
-					break;
-				case 1:
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				case 5:
-					break;
+				this.dependencyTextBox1.Visibility = Visibility.Visible;
+				this.dependencyTextBox2.Visibility = Visibility.Hidden;
+			}
+			else
+			{
+				this.dependencyTextBox1.Visibility = Visibility.Visible;
+				this.dependencyTextBox2.Visibility = Visibility.Visible;
 			}
 		}
 	}
