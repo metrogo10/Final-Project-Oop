@@ -25,7 +25,7 @@ namespace Proteus.Engines
 		{
 			bool source = false;
 			decimal retVal = 0;
-			foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
+            foreach (KeyValuePair<string, Character> character in MainEngine.Characters)
 			{
 				foreach(KeyValuePair<string, CustomAttribute> CustomAttribute in character.Value.Attributes)
 				{
@@ -50,8 +50,7 @@ namespace Proteus.Engines
 					retVal = ((NumAttribute)character.Value.Attributes[attributeReference]).GetValue();
 				}
 			}
-
-			return retVal;
+            return retVal;
 		}
 		/// <summary>
 		/// Analyzes an attribute and returns whether or not it is valid.
