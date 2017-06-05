@@ -20,7 +20,8 @@ namespace Proteus.View
     public partial class NewGame : Window
     {
         private int i = 1;
-        private static int j = 1;
+        private int j = 1;
+
         public NewGame()
         {
             InitializeComponent();
