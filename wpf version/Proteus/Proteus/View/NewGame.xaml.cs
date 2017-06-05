@@ -34,12 +34,12 @@ namespace Proteus.View
             this.Close();
         }
 
-//        private void Exit_Click(object sender, RoutedEventArgs e)
-//        {
-//            i = 1;
-//            j = 1;
-//            this.Close();
-//        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            i = 1;
+            j = 1;
+            this.Close();
+        }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
