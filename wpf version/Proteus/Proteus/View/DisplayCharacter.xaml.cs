@@ -1,5 +1,4 @@
-﻿using Proteus.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,26 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 namespace Proteus.View
 {
     /// <summary>
-    /// Interaction logic for NewCharacter.xaml
+    /// Interaction logic for DisplayCharacter.xaml
     /// </summary>
-    public partial class NewCharacter : Window
+    public partial class DisplayCharacter : Window
     {
-        public NewCharacter()
+        public DisplayCharacter()
         {
             InitializeComponent();
         }
-        private void SaveCharacter_Click(object sender, RoutedEventArgs e)
+        
+        private void MainTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-
-        private void Atribute_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CustomAttribute a = (CustomAttribute)Atribute.SelectedValue;
-            a.
         }
     }
 }

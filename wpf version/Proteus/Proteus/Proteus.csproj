@@ -55,8 +55,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Engines\RandomGenerator.cs" />
+    <Compile Include="View\ItemBuilder.xaml.cs">
+      <DependentUpon>ItemBuilder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoadGame.xaml.cs">
       <DependentUpon>LoadGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewCharacter.xaml.cs">
+      <DependentUpon>NewCharacter.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewGame.xaml.cs">
       <DependentUpon>NewGame.xaml</DependentUpon>
@@ -64,9 +70,17 @@
     <Compile Include="View\ObjectsFromRules.xaml.cs">
       <DependentUpon>ObjectsFromRules.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControl1.xaml.cs">
+    <Page Include="View\ItemBuilder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,7 +95,7 @@
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="CharacterData-DESKTOP-3AOB1V9.cs" />
     <Compile Include="CharacterData.cs" />
-    <Compile Include="Engines\CharacterEngine.cs" />
+    <Compile Include="Engines\Courier.cs" />
     <Compile Include="Engines\FileIO.cs" />
     <Compile Include="Engines\MainEngine.cs" />
     <Compile Include="Interfaces\IAttackable.cs" />
