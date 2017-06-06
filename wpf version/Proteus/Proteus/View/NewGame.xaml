@@ -36,8 +36,7 @@
 
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
             <TabControl Margin="0" Width="290" 
-                    x:Name="AttributeTabControl" Height="500"
-                    >
+                    x:Name="AttributeTabControl" Height="500">
             </TabControl>
         </ScrollViewer>
     </StackPanel>
