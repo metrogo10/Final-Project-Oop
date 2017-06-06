@@ -27,10 +27,36 @@ namespace Proteus.View
         {
 
         }
-
         private void Atribute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CustomAttribute a = (CustomAttribute)Atribute.SelectedValue;
+            words.Content = "";
+            NumAttribute a = new NumAttribute(null,null,0,null);
+            if (Atribute.SelectedValue.GetType() == a.GetType())
+            {
+                a = (NumAttribute)Atribute.SelectedValue;
+                for(int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
+            }
+            else if (Atribute.SelectedItem.GetType() == a.GetType())
+            {
+                a = (NumAttribute)Atribute.SelectedItem;
+                for (int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
+            }
+        }
+        private void valuebox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NumAttribute a = new NumAttribute(null, null, 0, null);
+            if (Atribute.SelectedValue.GetType() == a.GetType())
+            {
+                a = (NumAttribute)Atribute.SelectedValue;
+                decimal d = 0;
+                if(decimal.TryParse(valuebox.Text,out d)) { a.Value = d; }
+                else { a.Name = valuebox.Text; }
+            }
+            else if (Atribute.SelectedItem.GetType() == a.GetType())
+            {
+                a = (NumAttribute)Atribute.SelectedItem;
+
+            }
         }
     }
 }

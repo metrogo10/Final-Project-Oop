@@ -38,14 +38,14 @@
                             <Label  Grid.Row="1" Margin="0,34.5,0,0.5" Grid.RowSpan="2">Attribute</Label>
                             <ComboBox x:Name="Atribute" Grid.Row="2" Grid.Column="1" Margin="0,10" Grid.ColumnSpan="2"  SelectionChanged="Atribute_SelectionChanged"/>
                             <Label Margin="0,7,0,0.5" Grid.RowSpan="2">Value</Label>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0.5,0,10.5" Grid.ColumnSpan="2" />
+                            <TextBox x:Name="valuebox" Grid.Row="1" Grid.Column="1" Margin="0,0.5,0,10.5" Grid.ColumnSpan="2" TextChanged="valuebox_TextChanged" />
                         </Grid>
                         <StackPanel Height="170">
                             <Button x:Name="SaveCharacter" Click="SaveCharacter_Click" Content="Save Character" RenderTransformOrigin="0.557,-0.64"/>
                             <Label HorizontalContentAlignment="Center" FontSize="16" Content="- Dependency List -" Background="White"/>
                             <GroupBox Height ="110" RenderTransformOrigin="0.5,0.5">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <StackPanel x:Name="ListPanel"/>
+                                    <Label x:Name="words"/>
                                 </ScrollViewer>
                             </GroupBox>
                         </StackPanel>
