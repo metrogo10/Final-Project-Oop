@@ -16,7 +16,7 @@ namespace Proteus.Engines
 	/// </remarks>
 	public static class CharacterEngine
 	{
-		private static Character charTemplate;
+		private static Character charTemplate = new Character();
 
 		public static Character CharTemplate
 		{

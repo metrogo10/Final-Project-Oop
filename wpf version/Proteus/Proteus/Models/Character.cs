@@ -28,7 +28,7 @@ namespace Proteus
 			get { return C; }
 			set { C = value; }
 		}
-		public Dictionary<string, CustomAttribute> attributes = new Dictionary<string, CustomAttribute>();
+		private Dictionary<string, CustomAttribute> attributes = new Dictionary<string, CustomAttribute>();
 		protected List<Item> inventory = new List<Item>();
         protected List<IEquipable> heldItems = new List<IEquipable>();
 		public Dictionary<string, CustomAttribute> Attributes

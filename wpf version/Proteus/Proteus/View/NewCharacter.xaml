@@ -16,7 +16,7 @@
                 <MenuItem Header="_Save" />
                 <MenuItem Header="_Save As..." />
                 <Separator />
-                <MenuItem Header="_Exit"  Click="Exit_Click"/>
+                <MenuItem Header="_Exit" />
             </MenuItem>
         </Menu>
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
