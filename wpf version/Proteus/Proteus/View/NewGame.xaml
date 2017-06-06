@@ -18,20 +18,8 @@
     <StackPanel>
         <Menu Margin="0" Width="300" Height="20"
               DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New..." />
-                <Separator />
-                <MenuItem Header="_Open..." />
-                <Separator />
-                <MenuItem Header="_Save" />
-                <MenuItem Header="_Save As..." />
-                <Separator />
-                <MenuItem Header="_Exit"  Click="Exit_Click"/>
-            </MenuItem>
-
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_Add Attribute" Click="AddAttributeButton_Click"/>
-            </MenuItem>
+            <MenuItem Header="_Add Attribute" Click="AddAttributeButton_Click"/>
+            <MenuItem Header="Save Template" Click="SaveTemplate"/>
         </Menu>
 
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">

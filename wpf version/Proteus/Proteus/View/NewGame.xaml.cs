@@ -15,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Proteus.Attributes;
 using Proteus.View;
+using Proteus.Engines;
+using Microsoft.Win32;
+
 namespace Proteus.View
 {
     /// <summary>
@@ -58,7 +61,7 @@ namespace Proteus.View
         }
         private void AddAttributeButton_Click(object sender, RoutedEventArgs e)
         {
-            UserControl1 u1 = new UserControl1();
+			UserControl1 u1 = new UserControl1();
             j++;
             TabItem t1 = new TabItem();
             t1.Content = u1;
@@ -75,5 +78,36 @@ namespace Proteus.View
         {
 
         }
-    }
+
+		private void SaveTemplate(object sender, RoutedEventArgs e)
+		{
+			List<string> errors = new List<string>();
+
+			foreach (NumAttribute attribute in CharacterEngine.CharTemplate.Attributes.Values)
+			{
+				if (attribute.GetType() == typeof(NumAttribute))
+				{
+					foreach (string error in CharacterEngine.ValidateAttribute(CharacterEngine.CharTemplate, (NumAttribute)attribute))
+					{
+						errors.Add(error);
+					}
+				}
+			}
+
+			if (errors.Count==0)
+			{
+				SaveFileDialog saver = new SaveFileDialog();
+				saver.Filter = "Proteus Character Template Files (*.ptemp)|*.ptemp";
+				if (saver.ShowDialog() == DialogResult)
+					FileIO.SaveCharacter(saver.FileName, CharacterEngine.CharTemplate);
+			}
+			else
+			{
+				StringBuilder consolodatedErrors = new StringBuilder();
+				foreach (string error in errors)
+					consolodatedErrors.Append(error + "\n");
+				MessageBoxResult errorMessage = MessageBox.Show(consolodatedErrors.ToString());
+			}
+		}
+	}
 }
