@@ -19,14 +19,9 @@
                 <Separator />
                 <MenuItem Header="_Exit"  Click="Exit_Click"/>
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="AddEffect" Click="AddAttributeButton_Click"/>
-            </MenuItem>
         </Menu>
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
-            <TabControl Margin="0" Width="290" 
-                    x:Name="AttributeTabControl" Height="500"
-                    >
+            <TabControl Margin="0" Width="290"  x:Name="AttributeTabControl" Height="500">
                 <TabItem Header="Effect" Height="20">
                     <StackPanel x:Name="AttributePanel" Height="400">
                         <Grid Margin="10">
@@ -59,9 +54,9 @@
                                 <Label Grid.Column="1" HorizontalAlignment="Center" Margin="75,-10,64,0" Width="109" FontSize="14" Content=" - Dependency - " />
                                 <TextBox x:Name="dependencyTextBox1" Grid.Row="1" Grid.ColumnSpan="2" Margin="106,0,77,45.667" Grid.RowSpan="2" Height="18" VerticalAlignment="Bottom"/>
                                 <TextBox x:Name="dependencyTextBox2" Grid.Row="1" Grid.Column="1" Margin="180,0,10,0" />
-                                <ComboBox x:Name="dependencyComboBox" Grid.Row="1" Grid.Column="1" Margin="10,0,159,41.667" Grid.RowSpan="2" SelectionChanged="DependencySelectionChanged" Height="22" VerticalAlignment="Bottom" >
+                                <ComboBox x:Name="dependencyComboBox" Grid.Row="1" Grid.Column="1" Margin="10,0,159,41.667" Grid.RowSpan="2"  Height="22" VerticalAlignment="Bottom" >
                                 </ComboBox>
-                                <Button Grid.Row="2" Grid.Column="1" Margin="0,10" Click="AddDependency_Click">Add Dependency</Button>
+                                <Button Grid.Row="2" Grid.Column="1" Margin="0,10">Add Dependency</Button>
                             </Grid>
                         </GroupBox>
                         <StackPanel Height="170">
@@ -72,7 +67,7 @@
                                     </StackPanel>
                                 </ScrollViewer>
                             </GroupBox>
-                            <Button x:Name="SaveItem" Click="SaveAttribute_Click" Content="Save Attribute" RenderTransformOrigin="0.557,-0.64"/>
+                            <Button x:Name="SaveItem" Content="Save Attribute" RenderTransformOrigin="0.557,-0.64"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>

@@ -30,9 +30,9 @@ namespace Proteus.View
 		public NewGame()
         {
             InitializeComponent();
-			dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
+			/*dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
 			dependencyTextBox1.Visibility = Visibility.Hidden;
-			dependencyTextBox2.Visibility = Visibility.Hidden;
+			dependencyTextBox2.Visibility = Visibility.Hidden;*/
 			Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
 
@@ -65,6 +65,11 @@ namespace Proteus.View
         }
 
         private void AddDependency_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
