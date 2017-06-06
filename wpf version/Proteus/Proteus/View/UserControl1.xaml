@@ -20,7 +20,7 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Column="1" HorizontalAlignment="Center" Margin="46,-13,80,0" Width="92" FontSize="14" Content=" - Attribute -" />
                 <Label Grid.Row="1">Name</Label>
-                <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" />
+                <TextBox x:Name="AttributeNameField" Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" />
                 <Label Grid.Row="2">Type</Label>
                 <ComboBox x:Name="AttributeType" Grid.Row="2" Grid.Column="2" Margin="0,0,0,10" SelectionChanged="AttributeTypeChanged" >
                     <ComboBoxItem Content="Text" HorizontalAlignment="Left" Width="436"/>
