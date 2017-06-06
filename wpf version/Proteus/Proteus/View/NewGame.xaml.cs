@@ -67,5 +67,10 @@ namespace Proteus.View
             t1.Header = $"Attribute {j}";
             AttributeTabControl.Items.Add(t1);        
         }
-	}
+
+        private void AddDependency_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }
