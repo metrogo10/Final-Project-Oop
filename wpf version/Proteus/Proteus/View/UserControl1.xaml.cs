@@ -102,6 +102,11 @@ namespace Proteus.View
 			else
 				V2 = 0;
 
+			if (v1IsRef)
+				V1 = dependencyTextBox1.Text;
+			if (v2IsRef)
+				V2 = dependencyTextBox2.Text;
+
 			if (CharacterEngine.CharTemplate != null && ((v1IsRef && CharacterEngine.CharTemplate.Attributes.ContainsKey(V1.ToString())) || (v2IsRef && V2.ToString()!="" && CharacterEngine.CharTemplate.Attributes.ContainsKey(V2.ToString()))))
 			{
 				dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
@@ -113,7 +118,7 @@ namespace Proteus.View
 				dependencyTextBox1.Text = "";
 				dependencyTextBox2.Text = "";
 			}
-			else if (!v2IsRef && !v1IsRef)
+			else if (!v1IsRef && (operand>=0 && (int)operand<=4))
 			{
 				dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
 				Label l = new Label();
