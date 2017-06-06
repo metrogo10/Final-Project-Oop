@@ -19,7 +19,7 @@ namespace Proteus.Engines
 		public static void SaveCharacter(string filePath, Character character)
 		{
 			IFormatter formatter = new BinaryFormatter();
-			Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
+			Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
 			formatter.Serialize(stream, character);
 			stream.Close();
 		}

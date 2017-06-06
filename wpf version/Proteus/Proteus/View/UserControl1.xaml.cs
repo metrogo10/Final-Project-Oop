@@ -91,21 +91,47 @@ namespace Proteus.View
 
 		private void AddDependency_Click(object sender, RoutedEventArgs e)
 		{
+			//These are the parameters required to construct a dependency.
 			Operand operand = (Operand)dependencyComboBox.SelectedItem;
-			decimal throwaway;
-			object V1 = decimal.TryParse(dependencyTextBox1.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox1.Text;
-			object V2 = decimal.TryParse(dependencyTextBox2.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox2.Text;
-			bool v1IsRef = !decimal.TryParse(dependencyTextBox1.Text, out throwaway);
-			bool v2IsRef = false;
-			if ((int)operand > 4)
-				v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway);
-			else
-				V2 = 0;
+			object V1;
+			Object V2;
+			bool v1IsRef;
+			bool v2IsRef;
+
+			decimal throwaway; //This is a useless variable for our TryParse to output to.
+
+			//We need to check whether the user has entered a reference string or a number
+			//Here we check V1, the most used value.
+			v1IsRef = !decimal.TryParse(dependencyTextBox1.Text, out throwaway);
+
+			//Now we set V1.
 
 			if (v1IsRef)
-				V1 = dependencyTextBox1.Text;
-			if (v2IsRef)
-				V2 = dependencyTextBox2.Text;
+			{
+				V1 = dependencyTextBox1.Text; //If it did not parse, we can set it equal to the text in the box.
+			}
+			else
+			{
+				V1 = throwaway; //If the value parsed successfully, it stored itself in throwaway. We can use that before we reset it. 
+			}
+
+			//Time for the second value. First, we need to know if we're even using a second value.
+			if ((int)operand < 5) //This is the range of operands which only take in one value.
+			{
+				V2 = ""; //We can set v2 to the empty string so it doesn't display. We'll never use it.
+				v2IsRef = false;
+			}
+			else
+			{
+				v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway); //Second verse, same as the first.
+
+				if (v2IsRef)
+					V2 = dependencyTextBox2.Text;
+				else
+					V2 = throwaway; //Once again, this value will be set between being used the first and second time if we're ever going to use it a second time.
+			}
+
+
 
 			if (CharacterEngine.CharTemplate != null && ((v1IsRef && CharacterEngine.CharTemplate.Attributes.ContainsKey(V1.ToString())) || (v2IsRef && V2.ToString()!="" && CharacterEngine.CharTemplate.Attributes.ContainsKey(V2.ToString()))))
 			{
@@ -139,10 +165,21 @@ namespace Proteus.View
 				dependencyTextBox1.Text = "";
 				dependencyTextBox2.Text = "Invalid Reference";
 			}
-			else
+			else if (v1IsRef && v2IsRef)
 			{
 				dependencyTextBox1.Text = "Invalid Reference";
 				dependencyTextBox2.Text = "Invalid Reference";
+			}
+			else
+			{
+				dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
+				Label l = new Label();
+				l.Width = 250;
+				l.Content = $"{i}. {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox1.Text} - {dependencyTextBox2.Text}";
+				i++;
+				ListPanel.Children.Add(l);
+				dependencyTextBox1.Text = "";
+				dependencyTextBox2.Text = "";
 			}
 
 		}

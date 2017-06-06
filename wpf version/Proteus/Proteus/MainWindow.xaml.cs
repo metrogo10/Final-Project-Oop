@@ -31,7 +31,7 @@ namespace Proteus
         }
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            Application.Current.Shutdown();
+			Environment.Exit(0);
         }
         private void NewGame(object sender, RoutedEventArgs e)
         {

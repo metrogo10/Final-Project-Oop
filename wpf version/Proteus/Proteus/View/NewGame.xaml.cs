@@ -96,10 +96,10 @@ namespace Proteus.View
 
 			if (errors.Count==0)
 			{
-				SaveFileDialog saver = new SaveFileDialog();
-				saver.Filter = "Proteus Character Template Files (*.ptemp)|*.ptemp";
-				if (saver.ShowDialog() == DialogResult)
-					FileIO.SaveCharacter(saver.FileName, CharacterEngine.CharTemplate);
+				MainEngine.Template = CharacterEngine.CharTemplate;
+				ObjectsFromRules newMenu = new ObjectsFromRules();
+				newMenu.Show();
+				this.Close();
 			}
 			else
 			{
