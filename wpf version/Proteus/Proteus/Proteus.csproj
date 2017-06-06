@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Engines\CharacterEngine.cs" />
     <Compile Include="Engines\RandomGenerator.cs" />
     <Compile Include="View\ItemBuilder.xaml.cs">
       <DependentUpon>ItemBuilder.xaml</DependentUpon>
