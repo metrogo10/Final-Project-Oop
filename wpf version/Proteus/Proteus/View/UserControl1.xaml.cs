@@ -93,11 +93,11 @@ namespace Proteus.View
 		{
 			Operand operand = (Operand)dependencyComboBox.SelectedItem;
 			decimal throwaway;
-			object V1 = !decimal.TryParse(dependencyTextBox1.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox1.Text;
-			object V2 = !decimal.TryParse(dependencyTextBox2.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox2.Text;
+			object V1 = decimal.TryParse(dependencyTextBox1.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox1.Text;
+			object V2 = decimal.TryParse(dependencyTextBox2.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox2.Text;
 			bool v1IsRef = !decimal.TryParse(dependencyTextBox1.Text, out throwaway);
 			bool v2IsRef = false;
-			if (operand >= 0 && (int)operand <= 4)
+			if ((int)operand > 4)
 				v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway);
 			else
 				V2 = 0;
@@ -149,6 +149,8 @@ namespace Proteus.View
 
 		private void AttributeTypeChanged(object sender, SelectionChangedEventArgs e)
 		{
+			dependencyTextBox1.Text = "";
+			dependencyTextBox2.Text = "";
 			if (AttributeType.SelectedIndex == 1)
 			{
 				AddDependencyBox.Visibility = Visibility.Visible;
@@ -159,6 +161,16 @@ namespace Proteus.View
 				AddDependencyBox.Visibility = Visibility.Hidden;
 				DependencyListBox.Visibility = Visibility.Hidden;
 			}
+		}
+
+		private void DBox1Focus(object sender, RoutedEventArgs e)
+		{
+			dependencyTextBox1.Text = "";
+		}
+
+		private void DBox2Focus(object sender, RoutedEventArgs e)
+		{
+			dependencyTextBox2.Text = "";
 		}
 	}
 }

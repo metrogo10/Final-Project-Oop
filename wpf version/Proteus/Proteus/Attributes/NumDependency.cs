@@ -88,6 +88,8 @@ namespace Proteus.Attributes
         //Because we're using objects which represent both possabilties of each value, we make our constructor more dynamic.
         public NumDependency(Operand type, bool v1IsRef, bool v2IsRef, object v1, object v2)
         {
+			this.v1IsRef = v1IsRef;
+			this.v2IsRef = v2IsRef;
 			id = count++;
             //By using object we can cut down on data input, as long as our bools line up we can always cast safely.
             if (v1IsRef)
