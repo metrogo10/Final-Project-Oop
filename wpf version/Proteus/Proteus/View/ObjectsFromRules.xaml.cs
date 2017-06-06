@@ -26,14 +26,16 @@ namespace Proteus.View
         }
         private void CreateCharacter(object sender, RoutedEventArgs e)
         {
-
+            NewCharacter n = new NewCharacter();
+            n.Show();
+            this.Hide();
         }
         private void LoadCharacter(object sender, RoutedEventArgs e)
         {
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Character Templates (*.ptemp)|*.ptemp";
 			if (openFileDialog.ShowDialog() == DialogResult)
-				MainEngine.Character = FileIO.LoadCharacter(openFileDialog.FileName);
+		    MainEngine.Character = FileIO.LoadCharacter(openFileDialog.FileName);
 		}
         private void CreateItemTemplate(object sender, RoutedEventArgs e)
         {
