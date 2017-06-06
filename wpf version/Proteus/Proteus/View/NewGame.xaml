@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-assembly=Tab_UserControl..NETFramework,Version=v4.5.2"
         mc:Ignorable="d"
-        Title="New Ruleset - Proteus" Height="460" Width="300">
+        Title="New Ruleset - Proteus" Height="500" Width="300">
 
     <!-- 
         Things to look up:
@@ -36,10 +36,10 @@
 
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
             <TabControl Margin="0" Width="290" 
-                    x:Name="AttributeTabControl" Height="410"
+                    x:Name="AttributeTabControl" Height="500"
                     >
                 <TabItem Header="Attribute" Height="20">
-                    <StackPanel>
+                    <StackPanel x:Name="AttributePanel" Height="400">
                         <Grid Margin="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -86,13 +86,13 @@
                                     </StackPanel>
                                 </ScrollViewer>
                             </GroupBox>
-                            <Label HorizontalAlignment="Center">Status :</Label>
+                            <Button x:Name="SaveAttribute" Click="SaveAttribute_Click" Content="Save Attribute" RenderTransformOrigin="0.557,-0.64"/>
                         </StackPanel>
+
                     </StackPanel>
                 </TabItem>
             </TabControl>
         </ScrollViewer>
-
     </StackPanel>
 </Window>
 

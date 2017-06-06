@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tab_UserControl
+namespace Tab_UserControl.View
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
@@ -21,8 +21,10 @@ namespace Tab_UserControl
     public partial class UserControl1 : UserControl
     {
         private int i = 1;
+		List<NumDependency> dependencies = new List<NumDependency>();
 
-        public UserControl1()
+
+		public UserControl1()
         {
             InitializeComponent();
         }
