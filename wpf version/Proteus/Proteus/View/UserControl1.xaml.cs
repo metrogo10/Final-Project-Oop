@@ -1,4 +1,5 @@
 ﻿using Proteus.Attributes;
+using Proteus.Engines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,14 +75,45 @@ namespace Proteus.View
 				v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway);
 			else
 				V2 = 0;
-			dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
-			Label l = new Label();
-			l.Width = 250;
-			l.Content = $"{i}. {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox1.Text} - {dependencyTextBox2.Text}";
-			i++;
-			ListPanel.Children.Add(l);
-			dependencyTextBox1.Text = "";
-			dependencyTextBox2.Text = "";
+
+			if (CharacterEngine.CharTemplate != null && ((v1IsRef && CharacterEngine.CharTemplate.Attributes.ContainsKey(V1.ToString())) || (v2IsRef && V2.ToString()!="" && CharacterEngine.CharTemplate.Attributes.ContainsKey(V2.ToString()))))
+			{
+				dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
+				Label l = new Label();
+				l.Width = 250;
+				l.Content = $"{i}. {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox1.Text} - {dependencyTextBox2.Text}";
+				i++;
+				ListPanel.Children.Add(l);
+				dependencyTextBox1.Text = "";
+				dependencyTextBox2.Text = "";
+			}
+			else if (!v2IsRef && !v1IsRef)
+			{
+				dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
+				Label l = new Label();
+				l.Width = 250;
+				l.Content = $"{i}. {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox1.Text} - {dependencyTextBox2.Text}";
+				i++;
+				ListPanel.Children.Add(l);
+				dependencyTextBox1.Text = "";
+				dependencyTextBox2.Text = "";
+			}
+			else if (v1IsRef && !v2IsRef)
+			{
+				dependencyTextBox1.Text = "Invalid Reference";
+				dependencyTextBox2.Text = "";
+			}
+			else if (!v1IsRef && v2IsRef)
+			{
+				dependencyTextBox1.Text = "";
+				dependencyTextBox2.Text = "Invalid Reference";
+			}
+			else
+			{
+				dependencyTextBox1.Text = "Invalid Reference";
+				dependencyTextBox2.Text = "Invalid Reference";
+			}
+
 		}
 
 		private void AttributeTypeChanged(object sender, SelectionChangedEventArgs e)
