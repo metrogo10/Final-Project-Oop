@@ -22,10 +22,14 @@
                 <Label Grid.Row="1">Name</Label>
                 <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,10" />
                 <Label Grid.Row="2">Type</Label>
-                <ComboBox Grid.Row="2" Grid.Column="2" Margin="0,0,0,10" />
+                <ComboBox x:Name="AttributeType" Grid.Row="2" Grid.Column="2" Margin="0,0,0,10" SelectionChanged="AttributeTypeChanged" >
+                    <ComboBoxItem Content="Text" HorizontalAlignment="Left" Width="436"/>
+                    <ComboBoxItem Content="Number" HorizontalAlignment="Left" Width="436"/>
+                    <ComboBoxItem Content="Boolean" HorizontalAlignment="Left" Width="436"></ComboBoxItem>
+                </ComboBox>
             </Grid>
 
-            <GroupBox Height="110">
+            <GroupBox x:Name="AddDependencyBox" Height="110">
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -45,7 +49,7 @@
                 </Grid>
             </GroupBox>
 
-            <StackPanel Height="170">
+            <StackPanel x:Name="DependencyListBox" Height="170">
                 <Label HorizontalContentAlignment="Center" FontSize="16">- Dependency List -</Label>
                 <GroupBox Height ="110" RenderTransformOrigin="0.5,0.5">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">

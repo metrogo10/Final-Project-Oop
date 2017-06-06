@@ -64,9 +64,9 @@
     <Compile Include="View\ObjectsFromRules.xaml.cs">
       <DependentUpon>ObjectsFromRules.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\UserControl1.xaml.cs">
+    <Compile Include="View\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Page>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,7 +81,7 @@
     <Compile Include="Attributes\Operand.cs" />
     <Compile Include="CharacterData-DESKTOP-3AOB1V9.cs" />
     <Compile Include="CharacterData.cs" />
-    <Compile Include="Engines\Courier.cs" />
+    <Compile Include="Engines\CharacterEngine.cs" />
     <Compile Include="Engines\FileIO.cs" />
     <Compile Include="Engines\MainEngine.cs" />
     <Compile Include="Interfaces\IAttackable.cs" />

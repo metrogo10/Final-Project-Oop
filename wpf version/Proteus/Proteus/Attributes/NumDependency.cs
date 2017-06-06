@@ -33,7 +33,7 @@ namespace Proteus.Attributes
             get
             {
 				if (v1IsRef)
-					return Courier.GetValue(v1Ref, ID);
+					return CharacterEngine.GetValue(v1Ref, ID);
 				else
 					return v1NonRef;
             }
@@ -43,7 +43,7 @@ namespace Proteus.Attributes
             get
             {
 				if (v2IsRef)
-					return Courier.GetValue(v2Ref, ID);
+					return CharacterEngine.GetValue(v2Ref, ID);
 				else
 					return v2NonRef;
             }
@@ -92,19 +92,19 @@ namespace Proteus.Attributes
             //By using object we can cut down on data input, as long as our bools line up we can always cast safely.
             if (v1IsRef)
             {
-                v1Ref = (string)v1;
+                v1Ref = v1.ToString();
             }
             else
             {
-                v1NonRef = (decimal)v1;
+                v1NonRef = decimal.Parse(v1.ToString());
             }
             if (v2IsRef)
             {
-                v2Ref = (string)v2;
+                v2Ref = v2.ToString();
             }
             else
             {
-                v2NonRef = (decimal)v2;
+                v2NonRef = decimal.Parse(v2.ToString());
             }
         }
         //This is the method which will be run on a value to make sure it conforms to all required dependancies.

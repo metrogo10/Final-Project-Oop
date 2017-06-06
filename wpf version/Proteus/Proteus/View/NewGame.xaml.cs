@@ -22,17 +22,21 @@ namespace Proteus.View
     /// </summary>
     public partial class NewGame : Window
     {
-        private int i = 1;
-        private int j = 1;
-		List<NumDependency> dependencies = new List<NumDependency>();
+        private int i = 0;
+        private int j = 0;
+		private List<Attribute> attributes = new List<Attribute>();
 
+		public List<Attribute> Attributes { get => attributes; set => attributes = value; }
 
 		public NewGame()
         {
             InitializeComponent();
-			dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
-			dependencyTextBox1.Visibility = Visibility.Hidden;
-			dependencyTextBox2.Visibility = Visibility.Hidden;
+			UserControl1 u1 = new UserControl1();
+			j++;
+			TabItem t1 = new TabItem();
+			t1.Content = u1;
+			t1.Header = $"Attribute {j}";
+			AttributeTabControl.Items.Add(t1);
 			Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
 

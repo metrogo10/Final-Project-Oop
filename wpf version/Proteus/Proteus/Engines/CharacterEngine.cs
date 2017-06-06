@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 namespace Proteus.Engines
 {
 	/// <summary>
-	/// The Courier is a static class which serves as an engine to fetch and deliver information for instances of attribute or dependancy. 
+	/// The CharacterEngine is a static class which serves as an engine to fetch and deliver information for instances of attribute or dependancy. 
 	/// This allows a dependancy to access the attribute it is stored in, and allows attributes to access other attributes in the same character.
 	/// </summary>
 	/// <remarks>
 	/// It is named so because it is used to carry information back and forth between dependancies, attributes, and characters,
 	/// allowing bottom level classes to speak with the top level classes they are stored within.
 	/// </remarks>
-	public static class Courier
+	public static class CharacterEngine
 	{
+		private static Character charTemplate;
+
+		public static Character CharTemplate
+		{
+			get { return charTemplate; }
+			set { charTemplate = value; }
+		}
+
 		/// <summary>
 		/// This method allows a dependancy to find the value of another attribute from the character it belongs to.
 		/// </summary>

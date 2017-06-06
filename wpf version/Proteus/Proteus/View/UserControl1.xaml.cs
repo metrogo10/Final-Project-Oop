@@ -28,7 +28,12 @@ namespace Proteus.View
 		public UserControl1()
         {
             InitializeComponent();
-        }
+			dependencyComboBox.ItemsSource = Enum.GetValues(typeof(Operand));
+			dependencyTextBox1.Visibility = Visibility.Hidden;
+			dependencyTextBox2.Visibility = Visibility.Hidden;
+			AddDependencyBox.Visibility = Visibility.Hidden;
+			DependencyListBox.Visibility = Visibility.Hidden;
+		}
 
 		private void DependencySelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
@@ -44,18 +49,17 @@ namespace Proteus.View
 			}
 		}
 
-		private void AddDependency_Click(object sender, RoutedEventArgs e)
-        {
-            Label l = new Label();
-            l.Width = 250;
-            l.Content = $"{i}. {dependencyTextBox1.Text} - {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox2.Text}";
-            i++;
-            ListPanel.Children.Add(l);
-        }
-
 		private void SaveAttribute_Click(object sender, RoutedEventArgs e)
 		{
-
+			switch(AttributeType.SelectedIndex)
+			{
+				case 0:
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
+			}
 		}
 
 		private void AddDependency_Click(object sender, RoutedEventArgs e)
@@ -65,13 +69,33 @@ namespace Proteus.View
 			object V1 = !decimal.TryParse(dependencyTextBox1.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox1.Text;
 			object V2 = !decimal.TryParse(dependencyTextBox2.Text, out throwaway) ? (object)throwaway : (object)dependencyTextBox2.Text;
 			bool v1IsRef = !decimal.TryParse(dependencyTextBox1.Text, out throwaway);
-			bool v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway);
+			bool v2IsRef = false;
+			if (operand >= 0 && (int)operand <= 4)
+				v2IsRef = !decimal.TryParse(dependencyTextBox2.Text, out throwaway);
+			else
+				V2 = 0;
 			dependencies.Add(new NumDependency(operand, v1IsRef, v2IsRef, V1, V2));
 			Label l = new Label();
 			l.Width = 250;
 			l.Content = $"{i}. {dependencyComboBox.SelectionBoxItem.ToString()} - {dependencyTextBox1.Text} - {dependencyTextBox2.Text}";
 			i++;
 			ListPanel.Children.Add(l);
+			dependencyTextBox1.Text = "";
+			dependencyTextBox2.Text = "";
+		}
+
+		private void AttributeTypeChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (AttributeType.SelectedIndex == 1)
+			{
+				AddDependencyBox.Visibility = Visibility.Visible;
+				DependencyListBox.Visibility = Visibility.Visible;
+			}
+			else
+			{
+				AddDependencyBox.Visibility = Visibility.Hidden;
+				DependencyListBox.Visibility = Visibility.Hidden;
+			}
 		}
 	}
 }
