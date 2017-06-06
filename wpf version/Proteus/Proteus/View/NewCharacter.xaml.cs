@@ -31,7 +31,6 @@ namespace Proteus.View
         private void Atribute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CustomAttribute a = (CustomAttribute)Atribute.SelectedValue;
-            a.
         }
     }
 }
