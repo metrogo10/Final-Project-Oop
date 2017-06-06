@@ -54,6 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Attributes\BoolAttribute.cs" />
+    <Compile Include="Attributes\TextAttribute.cs" />
     <Compile Include="Engines\CharacterEngine.cs" />
     <Compile Include="Engines\RandomGenerator.cs" />
     <Compile Include="View\ItemBuilder.xaml.cs">

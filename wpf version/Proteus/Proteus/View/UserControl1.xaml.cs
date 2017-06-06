@@ -52,14 +52,40 @@ namespace Proteus.View
 
 		private void SaveAttribute_Click(object sender, RoutedEventArgs e)
 		{
-			switch(AttributeType.SelectedIndex)
+			if (!CharacterEngine.CharTemplate.Attributes.ContainsKey(AttributeNameField.Text))
 			{
-				case 0:
-					break;
-				case 1:
-					break;
-				case 2:
-					break;
+				switch (AttributeType.SelectedIndex)
+				{
+					case 0: //Text
+						CharacterEngine.CharTemplate.Attributes.Add(AttributeNameField.Text, new TextAttribute(AttributeNameField.Text, "", 0, ""));
+						break;
+					case 1: //Number
+						NumAttribute newAttribute = new NumAttribute(AttributeNameField.Text, "", 0, dependencies);
+						string[] errors = CharacterEngine.ValidateAttribute(CharacterEngine.CharTemplate, newAttribute);
+					
+						if (errors.Length==0)
+						{
+							CharacterEngine.CharTemplate.Attributes.Add(newAttribute.Name, newAttribute);
+						}
+						else
+						{
+							StringBuilder consolodatedErrors = new StringBuilder();
+
+							foreach (string error in errors)
+							{
+								consolodatedErrors.Append(error + "\n");
+							}
+							MessageBoxResult errorMessage = MessageBox.Show(consolodatedErrors.ToString());
+						}
+						break;
+					case 2: //Bool
+						CharacterEngine.CharTemplate.Attributes.Add(AttributeNameField.Text, new BoolAttribute(AttributeNameField.Text, "", 0));
+						break;
+				}
+			}
+			else
+			{
+				AttributeNameField.Text = "Name Already In Use";
 			}
 		}
 
