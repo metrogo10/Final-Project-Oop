@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proteus.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,8 @@ namespace Proteus.View
 
         private void Atribute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Attribute a = (Attribute)Atribute.SelectedValue;
+            CustomAttribute a = (CustomAttribute)Atribute.SelectedValue;
+            a.
         }
     }
 }
