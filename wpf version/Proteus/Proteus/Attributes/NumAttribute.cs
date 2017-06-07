@@ -39,5 +39,9 @@ namespace Proteus.Attributes
         public void setMax(decimal max){this.max = max;}
         public decimal? getMin(){return min;}
         public void setMin(decimal min) { this.min = min; }
-	}
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
 }

@@ -23,6 +23,12 @@ namespace Proteus.View
         public NewCharacter()
         {
             InitializeComponent();
+            List<NumDependency> L = new List<NumDependency>();
+            NumAttribute n = new NumAttribute("Strength", null, 0, L);
+            NumDependency d = new NumDependency(Operand.GreaterThan,true,true,n,0);
+            L.Add(d);
+            MainEngine.Template.Attributes.Add(n.Name,n);
+            Atribute.ItemsSource = MainEngine.Template.Attributes.Keys;
         }
         private void SaveCharacter_Click(object sender, RoutedEventArgs e)
         {
@@ -32,7 +38,7 @@ namespace Proteus.View
         {
             words.Content = "";
             NumAttribute a = new NumAttribute(null, null, 0, null);
-            a = (NumAttribute)MainEngine.Character.Attributes.Values.ElementAt(Atribute.SelectedIndex);
+            a = (NumAttribute)MainEngine.Template.Attributes.Values.ElementAt(Atribute.SelectedIndex);
             for (int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
         }
         private void valuebox_TextChanged(object sender, TextChangedEventArgs e)
@@ -47,7 +53,7 @@ namespace Proteus.View
         {
             NumAttribute a = new NumAttribute(null, null, 0, null);
             decimal d = 0;
-            a = (NumAttribute)MainEngine.Character.Attributes.Values.ElementAt(Atribute.SelectedIndex);
+            a = (NumAttribute)MainEngine.Template.Attributes.Values.ElementAt(Atribute.SelectedIndex);
             if (decimal.TryParse(valuebox.Text, out d)) { a.Value = d; }
             else { a.Name = valuebox.Text; }
         }

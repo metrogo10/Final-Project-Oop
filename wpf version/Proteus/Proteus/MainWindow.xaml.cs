@@ -18,7 +18,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Proteus.Engines;
 using Proteus.Attributes;
-
 namespace Proteus
 {
     public partial class MainWindow : Window
@@ -40,18 +39,16 @@ namespace Proteus
         }
         private void LoadGame(object sender, RoutedEventArgs e)
         {
-            /*Character c = new Character();
-          List<NumDependency> ld = new List<NumDependency>();
-          NumDependency nd = new NumDependency(Operand.GreaterThan,true,false)
-          ld.Add()
-          NumAttribute n = new NumAttribute("str","stats",1,ld);
-          c.Attributes.Add();
-                        */
-            OpenFileDialog saver = new OpenFileDialog();
+            /*
+          OpenFileDialog saver = new OpenFileDialog();
           saver.Filter = "Proteus Rules Templates (*.ptemp)|*.ptemp";
           if (saver.ShowDialog() == DialogResult)
-              MainEngine.Template = FileIO.LoadCharacter(saver.FileName);
-
+          MainEngine.Template = FileIO.LoadCharacter(saver.FileName);
+          */
+            MainEngine.Template = CharacterEngine.CharTemplate;
+            ObjectsFromRules newMenu = new ObjectsFromRules();
+            newMenu.Show();
+            this.Close();
         }
     }
 }

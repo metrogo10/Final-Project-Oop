@@ -157,5 +157,9 @@ namespace Proteus.Attributes
 		{
 			return (Type + " :: " + priority + " :: " + v1IsRef + " :: " + (v1IsRef ? v1Ref : v1NonRef.ToString()) + " :: " + v2IsRef + " :: " + (v2IsRef ? v2Ref : v2NonRef.ToString()) + " :: ");
 		}
+        public override string ToString()
+        {
+            return  v1Ref.ToString()+" "+Type+" "+v2Ref;
+        }
     }
 }

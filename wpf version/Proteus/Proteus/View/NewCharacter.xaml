@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-assembly=Tab_UserControl..NETFramework,Version=v4.5.2"
         mc:Ignorable="d"
-        Title="New Character - Proteus" Height="400" Width="300">
+        Title="New Character - Proteus" Height="399.519" Width="316.827">
     <StackPanel>
         <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" Height="352">
             <StackPanel x:Name="AttributePanel" Height="349">
