@@ -1,4 +1,5 @@
 ﻿using Proteus.Attributes;
+using Proteus.Engines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,37 +31,25 @@ namespace Proteus.View
         private void Atribute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             words.Content = "";
-            NumAttribute a = new NumAttribute(null,null,0,null);
-            if (Atribute.SelectedValue.GetType() == a.GetType())
-            {
-                a = (NumAttribute)Atribute.SelectedValue;
-                for(int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
-            }
-            else if (Atribute.SelectedItem.GetType() == a.GetType())
-            {
-                a = (NumAttribute)Atribute.SelectedItem;
-                for (int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
-            }
+            NumAttribute a = new NumAttribute(null, null, 0, null);
+            a = (NumAttribute)MainEngine.Character.Attributes.Values.ElementAt(Atribute.SelectedIndex);
+            for (int i = 0; i < a.Dependancies.Count; i++) { words.Content += (a.Dependancies[i].ToString() + "\n"); }
         }
         private void valuebox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            NumAttribute a = new NumAttribute(null, null, 0, null);
-            if (Atribute.SelectedValue.GetType() == a.GetType())
-            {
-                a = (NumAttribute)Atribute.SelectedValue;
-                decimal d = 0;
-                if(decimal.TryParse(valuebox.Text,out d)) { a.Value = d; }
-                else { a.Name = valuebox.Text; }
-            }
-            else if (Atribute.SelectedItem.GetType() == a.GetType())
-            {
-                a = (NumAttribute)Atribute.SelectedItem;
-
-            }
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SaveValue_Click(object sender, RoutedEventArgs e)
+        {
+            NumAttribute a = new NumAttribute(null, null, 0, null);
+            decimal d = 0;
+            a = (NumAttribute)MainEngine.Character.Attributes.Values.ElementAt(Atribute.SelectedIndex);
+            if (decimal.TryParse(valuebox.Text, out d)) { a.Value = d; }
+            else { a.Name = valuebox.Text; }
         }
     }
 }

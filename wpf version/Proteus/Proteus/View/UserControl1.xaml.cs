@@ -119,7 +119,7 @@ namespace Proteus.View
 			if ((int)operand < 5) //This is the range of operands which only take in one value.
 			{
 				V2 = ""; //We can set v2 to the empty string so it doesn't display. We'll never use it.
-				v2IsRef = false;
+				v2IsRef = true;
 			}
 			else
 			{

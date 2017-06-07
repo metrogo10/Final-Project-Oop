@@ -7,51 +7,34 @@
         mc:Ignorable="d"
         Title="New Character - Proteus" Height="400" Width="300">
     <StackPanel>
-        <Menu Margin="0" Width="300" Height="20" DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New..." />
-                <Separator />
-                <MenuItem Header="_Open..." />
-                <Separator />
-                <MenuItem Header="_Save" />
-                <MenuItem Header="_Save As..." />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-        </Menu>
-        <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden">
-            <TabControl Margin="0" Width="290" x:Name="AttributeTabControl" Height="352" >
-                <TabItem Header="Character" Height="20">
-                    <StackPanel x:Name="AttributePanel" Height="300" Margin="0,3,0,169">
-                        <Grid Margin="10" Height="88">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="145*" />
-                                <ColumnDefinition Width="62*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Label HorizontalAlignment="Center" Margin="0,-13,0,27.71" Width="207" FontSize="14" Content="Enter the value of the attribute" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="1" />
-                            <Label  Grid.Row="1" Margin="0,34.5,0,0.5" Grid.RowSpan="2">Attribute</Label>
-                            <ComboBox x:Name="Atribute" Grid.Row="2" Grid.Column="1" Margin="0,10" Grid.ColumnSpan="2"  SelectionChanged="Atribute_SelectionChanged"/>
-                            <Label Margin="0,7,0,0.5" Grid.RowSpan="2">Value</Label>
-                            <TextBox x:Name="valuebox" Grid.Row="1" Grid.Column="1" Margin="0,0.5,0,10.5" Grid.ColumnSpan="2" TextChanged="valuebox_TextChanged" />
-                        </Grid>
-                        <StackPanel Height="170">
-                            <Button x:Name="SaveCharacter" Click="SaveCharacter_Click" Content="Save Character" RenderTransformOrigin="0.557,-0.64"/>
-                            <Label HorizontalContentAlignment="Center" FontSize="16" Content="- Dependency List -" Background="White"/>
-                            <GroupBox Height ="110" RenderTransformOrigin="0.5,0.5">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <Label x:Name="words"/>
-                                </ScrollViewer>
-                            </GroupBox>
-                        </StackPanel>
-                    </StackPanel>
-                </TabItem>
-            </TabControl>
+        <ScrollViewer  HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" Height="352">
+            <StackPanel x:Name="AttributePanel" Height="349">
+                <Grid Margin="10" Height="128">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="145*" />
+                        <ColumnDefinition Width="62*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Margin="0,10,0,64" Grid.RowSpan="2" Content="Name" Grid.Row="1"/>
+                    <TextBox x:Name="namebox" Grid.Row="1" Grid.Column="1" Margin="0,15,0,73" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                    <Label HorizontalAlignment="Center" Margin="5,-7,6,21" Width="207" FontSize="14" Content="Enter the value of the attribute" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="1" />
+                    <Label  Grid.Row="2" Margin="0,51,0,0" Content="Attribute"/>
+                    <ComboBox x:Name="Atribute" Grid.Row="2" Grid.Column="1" Margin="0,56,0,10" Grid.ColumnSpan="2"  SelectionChanged="Atribute_SelectionChanged"/>
+                    <Label Margin="0,22,0,39" Content="Value" Grid.Row="2"/>
+                    <TextBox x:Name="valuebox" Grid.Row="2" Grid.Column="1" Margin="0,22,0,44" Grid.ColumnSpan="2" TextChanged="valuebox_TextChanged" />
+                </Grid>
+                <Button Height="20" Content="SaveValue" Click="SaveValue_Click"/>
+                <Grid Height="178" VerticalAlignment="Bottom" Width="292">
+                    <Label HorizontalContentAlignment="Center" FontSize="16" Content="- Dependency List -" Background="White" Margin="0,22,0,123" VerticalContentAlignment="Bottom"/>
+                    <Label x:Name="words"  Height="98"   VerticalAlignment="Bottom" Margin="0,0,0,25"/>
+                    <Button Height="20" Content="SaveCharacter" VerticalAlignment="Bottom"/>
+                </Grid>
+            </StackPanel>
         </ScrollViewer>
     </StackPanel>
 </Window>
