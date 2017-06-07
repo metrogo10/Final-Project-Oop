@@ -90,6 +90,7 @@ namespace Proteus.Attributes
         {
 			this.v1IsRef = v1IsRef;
 			this.v2IsRef = v2IsRef;
+			this.type = type;
 			id = count++;
             //By using object we can cut down on data input, as long as our bools line up we can always cast safely.
             if (v1IsRef)

@@ -25,6 +25,8 @@ namespace Proteus
         NewGame N = new NewGame();
         public MainWindow()
         {
+			MainEngine.Template = new Character();
+			CharacterEngine.CharTemplate = new Character();
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }

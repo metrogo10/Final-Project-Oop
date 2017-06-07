@@ -143,15 +143,11 @@ namespace Proteus.Engines
 							if (d.v1IsRef)
 							{
 								NumAttribute n = (NumAttribute)character.Attributes[d.v1Ref];
-								if (n.getMax() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > highestPossible)
-								{
-									highestPossible = FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
-								}
+								highestPossible = FindHighestPossible(character, (NumAttribute)character.Attributes[d.v1Ref]) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 							}
 							else
 							{
-								if (d.Value1 > highestPossible)
-									highestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
+								highestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 							}
 							break;
 						case Operand.ProductOf:
@@ -214,19 +210,15 @@ namespace Proteus.Engines
 							lowestPossible = x - y;
 							attribute.setMin(lowestPossible);
 							break;
-						case Operand.LessThan:
-						case Operand.LessOrEqualTo:
+						case Operand.GreaterThan:
+						case Operand.GreaterOrEqualTo:
 							if (d.v1IsRef)
 							{
 								NumAttribute n = (NumAttribute)character.Attributes[d.v1Ref];
-								if (n.getMin() - (d.type == Operand.LessOrEqualTo ? 0 : 1) > lowestPossible)
-								{
 									lowestPossible = FindLowestPossible(character, n) - (d.type == Operand.LessOrEqualTo ? 0 : 1);
-								}
 							}
 							else
 							{
-								if (d.Value1 > lowestPossible)
 									lowestPossible = d.Value1 - (d.type == Operand.LessOrEqualTo ? 0 : 1);
 							}
 							break;
