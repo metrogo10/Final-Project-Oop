@@ -48,7 +48,6 @@ namespace Proteus.View
         {
             this.Close();
         }
-
         private void SaveValue_Click(object sender, RoutedEventArgs e)
         {
             NumAttribute a = new NumAttribute(null, null, 0, null);

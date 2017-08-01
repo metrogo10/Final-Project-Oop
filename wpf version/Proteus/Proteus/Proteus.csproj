@@ -96,7 +96,6 @@
     <Compile Include="Attributes\NumAttribute.cs" />
     <Compile Include="Attributes\NumDependency.cs" />
     <Compile Include="Attributes\Operand.cs" />
-    <Compile Include="CharacterData-DESKTOP-3AOB1V9.cs" />
     <Compile Include="CharacterData.cs" />
     <Compile Include="Engines\FileIO.cs" />
     <Compile Include="Engines\MainEngine.cs" />
